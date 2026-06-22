@@ -1,0 +1,61 @@
+---
+import { checklist } from '../data/checklist';
+const { faq } = checklist;
+---
+
+<section class="faq" id="faq" aria-labelledby="faq-heading">
+  <div class="container">
+    <p class="eyebrow">Questions</p>
+    <h2 id="faq-heading">Frequently asked questions</h2>
+    <div class="faq__list">
+      {faq.map((f, i) => (
+        <details class="faq__item" open={i === 0}>
+          <summary class="faq__q">
+            <span>{f.q}</span>
+            <span class="faq__icon" aria-hidden="true"></span>
+          </summary>
+          <p class="faq__a">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq { padding-block: clamp(3rem, 8vw, 6rem); }
+  .faq h2 { margin: 0.4rem 0 2rem; }
+  .faq__list { border-top: 1px solid var(--border); }
+  .faq__item { border-bottom: 1px solid var(--border); }
+  .faq__q {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.3rem 0;
+    cursor: pointer;
+    list-style: none;
+    font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+    font-weight: 500;
+    color: var(--white);
+  }
+  .faq__q::-webkit-details-marker { display: none; }
+  .faq__icon { position: relative; width: 16px; height: 16px; flex: none; }
+  .faq__icon::before,
+  .faq__icon::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background: var(--lilac);
+    transition: transform 0.25s var(--ease);
+  }
+  .faq__icon::before { width: 16px; height: 2px; }
+  .faq__icon::after { width: 2px; height: 16px; }
+  .faq__item[open] .faq__icon::after { transform: scaleY(0); }
+  .faq__a {
+    color: var(--text-dim);
+    line-height: 1.6;
+    max-width: 62ch;
+    padding-bottom: 1.4rem;
+  }
+</style>

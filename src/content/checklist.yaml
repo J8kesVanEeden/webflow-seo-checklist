@@ -1,0 +1,1124 @@
+# ============================================================================
+# THE ULTIMATE WEBFLOW SEO & AEO CHECKLIST — single source of truth.
+#
+# Edit copy here, commit, push. Cloudflare Pages rebuilds automatically.
+# Folded block scalars (>-) keep prose readable with no quote/colon escaping.
+# Validated by src/data/checklist.ts at build time, so mistakes fail loudly.
+# ============================================================================
+
+site:
+  title: "The Ultimate Webflow SEO & AEO Checklist (52 Steps) — Milk Moon Studio"
+  titleShort: "Webflow SEO & AEO Checklist"
+  description: >-
+    A page-by-page Webflow SEO and AEO checklist: 52 steps across 7 phases,
+    each rated by impact and effort with the what, the how in Webflow, and the
+    why. Covers technical SEO, on-page, Core Web Vitals, accessibility, launch,
+    and getting cited by AI answer engines.
+  url: "https://seo.milkmoonstudio.com"
+  author: "Milk Moon Studio"
+  authorUrl: "https://www.milkmoonstudio.com"
+  ogImage: "/og-image.png"
+  locale: "en"
+  updated: "2026-06-22"
+  keywords:
+    - Webflow SEO checklist
+    - Webflow SEO
+    - AEO checklist
+    - Answer Engine Optimization
+    - technical SEO checklist
+    - Webflow pre-launch checklist
+    - schema markup Webflow
+    - Core Web Vitals Webflow
+
+org:
+  name: "Milk Moon Studio"
+  url: "https://www.milkmoonstudio.com"
+  logo: "https://www.milkmoonstudio.com/favicon.png"
+  sameAs:
+    - "https://www.instagram.com/milkmoonstudio"
+    - "https://www.linkedin.com/company/milk-moon-studio"
+    - "https://twitter.com/milkmoonstudio"
+
+hero:
+  eyebrow: "Report · Pre-launch reference"
+  heading: "The Ultimate Webflow SEO & AEO Checklist"
+  lead: >-
+    Ship a site that ranks on Google and gets cited by AI. This is a
+    page-by-page pre-launch checklist for a Webflow project, organised into
+    seven phases and ordered roughly by when you do the work. Every item is
+    rated by impact (how much it moves rankings and visibility) and effort
+    (how hard it is in Webflow) — and for each you get the what, the how on
+    Webflow, and the why. The final phase covers AEO: the structural and schema
+    work that gets you surfaced in ChatGPT, Perplexity, and Google AI Overviews.
+  stats:
+    - value: "7"
+      label: "Phases, strategy through AEO"
+    - value: "52"
+      label: "Items, rated by impact & effort"
+    - value: "3.2×"
+      label: "FAQPage citation lift in AI Overviews"
+    - value: "~58%"
+      label: "CTR drop at position 1 when an AI Overview shows"
+
+howToUse:
+  heading: "How to use this checklist"
+  intro: >-
+    Impact is the ranking and visibility payoff. Effort is the work to
+    implement it in Webflow. Chase the top-left quadrant first: high impact,
+    low effort. Check items off as you go — your progress is saved in this
+    browser, so you can close the tab and pick up where you left off.
+  ratings:
+    - key: "critical"
+      label: "Critical"
+      desc: "Site can lose rankings or fail to index without it. Do not launch without these."
+    - key: "high"
+      label: "High"
+      desc: "Meaningful, durable ranking and visibility gains."
+    - key: "medium"
+      label: "Medium"
+      desc: "Solid best practice; compounding value over time."
+    - key: "low"
+      label: "Low"
+      desc: "Polish and edge-case coverage; nice to have."
+  notes:
+    - >-
+      Effort scale — Super easy (a toggle) · Easy (a few minutes per page) ·
+      Medium (setup and judgement) · High (ongoing or design-wide).
+    - >-
+      Work the phases in order. Phases 1–2 are foundation; 3–5 are per-page;
+      6 is launch day; 7 is AEO. For a page-by-page review, run Phases 3–4
+      (on-page and content) and 7 (AEO) against every page before you publish.
+    - >-
+      The honest truth: a checklist gets you technically sound, not to #1.
+      Ranking still needs genuinely useful content, good page experience, and
+      links and mentions earned over time. Two factors carry outsized weight —
+      relevant internal linking and full page renderability. Everything here
+      makes you eligible to compete; it does not win the race on its own.
+
+phases:
+  # =========================================================================
+  - id: "strategy"
+    number: "I"
+    title: "Strategy & Keyword Foundation"
+    blurb: "Decide what each page is for before you build it."
+    items:
+      - id: "keyword-map"
+        n: 1
+        title: "Build a keyword list and map one primary keyword per page"
+        summary: "Decide what each page is trying to rank for before you write a word of copy."
+        impact: "high"
+        effort: "medium"
+        what: >-
+          A spreadsheet of target terms, each assigned to exactly one page,
+          prioritised by search volume versus keyword difficulty. Keywords are
+          the bridge between what users type and what your page is about.
+        how: >-
+          Brainstorm money keywords (commercial and transactional intent),
+          check volume in Google Keyword Planner, Ahrefs, or Semrush, then
+          assign one primary keyword per URL plus a few secondary variations.
+        why: >-
+          Mapping one keyword per page prevents keyword cannibalisation, where
+          two of your own pages compete for the same term and split their
+          ranking strength.
+      - id: "site-structure"
+        n: 2
+        title: "Plan a shallow, logical site structure"
+        summary: "Every important page should be reachable within three clicks of the homepage."
+        impact: "high"
+        effort: "medium"
+        what: >-
+          A flat hierarchy — Home → Category → Page — with clear parent/child
+          relationships and a primary nav of only the 6–7 most important
+          destinations.
+        how: >-
+          Sketch the sitemap before building. Group pages into logical
+          folders and CMS Collections in Webflow, and keep the primary nav
+          tight; push everything else into the footer.
+        why: >-
+          Shallow structures spread link equity efficiently and let crawlers
+          find and index every page. Deep, buried pages get crawled less and
+          rank worse.
+      - id: "search-intent"
+        n: 3
+        title: "Match each page to search intent"
+        summary: "Confirm the page type fits what searchers actually want for that query."
+        impact: "high"
+        effort: "medium"
+        what: >-
+          The right format for the query: informational queries → guide or
+          blog; commercial → comparison or landing page; transactional →
+          product or pricing.
+        how: >-
+          Google your target keyword and look at what already ranks. If the top
+          10 are all how-to guides, a sales page will not break in — build the
+          format that is winning.
+        why: >-
+          Intent mismatch is the most common reason good content never ranks.
+          Search engines reward the format that satisfies the query.
+
+  # =========================================================================
+  - id: "technical"
+    number: "II"
+    title: "Technical Foundation (Site-Wide)"
+    blurb: "Set up once, correctly. These gate everything else."
+    items:
+      - id: "disable-subdomain-indexing"
+        n: 4
+        title: "Disable Webflow subdomain (staging) indexing"
+        summary: "Stop Google from indexing your your-site.webflow.io staging URL."
+        impact: "critical"
+        effort: "super-easy"
+        webflowPath: "Site settings → SEO tab → Indexing"
+        what: >-
+          A noindex rule on the Webflow subdomain so only your real domain
+          gets indexed.
+        how: >-
+          Site settings → SEO tab → under Indexing, toggle Disable Webflow
+          subdomain indexing to ON, then publish.
+        why: >-
+          If the staging copy is indexed you create duplicate content competing
+          with your live site, diluting rankings. This is the single most-missed
+          Webflow launch step.
+      - id: "custom-domain"
+        n: 5
+        title: "Connect a custom domain and set the www / non-www default"
+        summary: "Run on your own domain and pick one canonical host."
+        impact: "high"
+        effort: "easy"
+        webflowPath: "Site settings → Publishing → Custom domains"
+        what: >-
+          A custom domain connected, with one version (e.g. www) set as the
+          default and the other redirecting to it.
+        how: >-
+          Site settings → Publishing → add your domain, point the DNS records
+          as instructed, then set the default domain — Webflow auto-redirects
+          the other.
+        why: >-
+          Serving the same content at both www and non-www splits authority.
+          Consolidating to one preserves it and prevents duplicate-content
+          signals.
+      - id: "https-ssl"
+        n: 6
+        title: "Confirm HTTPS / SSL is enabled"
+        summary: "Serve every page over an encrypted HTTPS connection."
+        impact: "high"
+        effort: "super-easy"
+        webflowPath: "Site settings → Publishing → SSL"
+        what: >-
+          A valid SSL certificate so the browser shows the padlock and never a
+          Not Secure warning.
+        how: >-
+          On Webflow-hosted sites SSL is on by default — just confirm Enable
+          SSL is checked in Publishing settings.
+        why: >-
+          HTTPS is a confirmed ranking signal, and browsers actively warn users
+          away from insecure pages, killing trust before the page even loads.
+      - id: "xml-sitemap"
+        n: 7
+        title: "Enable the auto-generated XML sitemap"
+        summary: "Give crawlers a machine-readable map of every page."
+        impact: "high"
+        effort: "super-easy"
+        webflowPath: "Site settings → SEO → Sitemap"
+        what: >-
+          A /sitemap.xml file listing all indexable URLs.
+        how: >-
+          Site settings → SEO → Sitemap → toggle Auto-generate sitemap ON, save,
+          publish. Verify it loads at yourdomain.com/sitemap.xml.
+        why: >-
+          Sitemaps speed up discovery and indexing, especially for a brand-new
+          site with no backlinks pointing crawlers to your pages yet.
+      - id: "robots-txt"
+        n: 8
+        title: "Configure robots.txt"
+        summary: "Tell crawlers what they may and may not crawl."
+        impact: "medium"
+        effort: "easy"
+        webflowPath: "Site settings → SEO → Robots.txt"
+        what: >-
+          A robots.txt file allowing your public pages and (optionally) blocking
+          utility pages, with a link to your sitemap.
+        how: >-
+          Site settings → SEO → Robots.txt. To allow everything, use
+          User-agent star on one line and an empty Disallow on the next.
+        why: >-
+          A misconfigured Disallow can de-index your entire site. Double-check
+          this before launch — it is a common catastrophic mistake.
+        code:
+          lang: "txt"
+          label: "robots.txt — allow all, point to sitemap"
+          snippet: |-
+            User-agent: *
+            Disallow:
+
+            Sitemap: https://yourdomain.com/sitemap.xml
+      - id: "canonical-strategy"
+        n: 9
+        title: "Set a global canonical URL strategy"
+        summary: "Declare the official version of each URL."
+        impact: "medium"
+        effort: "easy"
+        webflowPath: "Site settings → SEO → Global canonical tag"
+        what: >-
+          A canonical link tag pointing to the preferred URL when similar
+          content could exist at multiple addresses.
+        how: >-
+          Webflow auto-adds self-referencing canonicals; for custom needs add a
+          global canonical in Site settings → SEO, or a per-page custom canonical
+          in page settings.
+        why: >-
+          Canonicals consolidate ranking signals onto one URL and resolve
+          duplicate-content ambiguity (e.g. URL parameters or paginated CMS
+          pages).
+        code:
+          lang: "html"
+          label: "Self-referencing canonical in the page head"
+          snippet: |-
+            <link rel="canonical" href="https://yourdomain.com/page" />
+      - id: "lang-code"
+        n: 10
+        title: "Set the site language code (ISO)"
+        summary: "Declare the human language of your content."
+        impact: "medium"
+        effort: "easy"
+        webflowPath: "Site settings → General → Localization"
+        what: >-
+          The lang attribute on the html element (e.g. lang="en").
+        how: >-
+          Site settings → General → Localization → enter your 2-letter language
+          code, save, publish.
+        why: >-
+          It tells search engines, browsers, and screen readers what language to
+          expect, improving accessibility and right-region targeting.
+      - id: "favicon"
+        n: 11
+        title: "Add a favicon and webclip (touch) icon"
+        summary: "Give your site a recognisable browser-tab and bookmark icon."
+        impact: "medium"
+        effort: "easy"
+        webflowPath: "Site settings → General → Icons"
+        what: >-
+          A 32×32px favicon and a 256×256px webclip (touch) icon.
+        how: >-
+          Site settings → General → Icons → upload both, publish, and
+          hard-refresh to see it.
+        why: >-
+          Favicons appear next to your title in search results and tabs,
+          reinforcing brand recognition and click-through.
+      - id: "custom-404"
+        n: 12
+        title: "Set up a useful custom 404 page"
+        summary: "Catch broken links with a helpful, navigable error page."
+        impact: "low"
+        effort: "easy"
+        webflowPath: "Pages panel → Utility pages → 404"
+        what: >-
+          A branded 404 page with search, primary nav, and links back to key
+          pages.
+        how: >-
+          Webflow has a built-in 404 template — design it like any other page
+          under the special Utility pages section.
+        why: >-
+          Good 404s keep users on-site instead of bouncing, and stop dead ends
+          from wasting crawl budget.
+
+  # =========================================================================
+  - id: "on-page"
+    number: "III"
+    title: "On-Page SEO (Run Per Page)"
+    blurb: "Repeat these for every page before you publish it."
+    items:
+      - id: "meta-title"
+        n: 13
+        title: "Write a unique meta title with the keyword"
+        summary: "Every page needs its own keyword-led title under ~60 characters."
+        impact: "critical"
+        effort: "easy"
+        webflowPath: "Page settings → SEO settings → Title Tag"
+        what: >-
+          The title tag — the clickable blue line in search results.
+        how: >-
+          Page settings → SEO settings → Title Tag. Lead with the primary
+          keyword, keep it under 60 characters so it does not truncate.
+        why: >-
+          The title is the strongest on-page relevance signal and the biggest
+          driver of click-through from the results page.
+      - id: "meta-description"
+        n: 14
+        title: "Write a compelling meta description"
+        summary: "Summarise the page in 150–160 characters with the keyword and a reason to click."
+        impact: "critical"
+        effort: "easy"
+        webflowPath: "Page settings → SEO settings → Meta Description"
+        what: >-
+          The meta description snippet shown under the title in results.
+        how: >-
+          Page settings → SEO settings → Meta Description. Make each one unique;
+          use action-oriented language.
+        why: >-
+          It does not directly rank you, but a strong description lifts CTR — and
+          higher CTR is itself a positive signal.
+      - id: "single-h1"
+        n: 15
+        title: "Use exactly one H1 per page, containing the keyword"
+        summary: "One clear H1 that states the page's topic and includes the primary keyword."
+        impact: "high"
+        effort: "easy"
+        webflowPath: "Element settings → Tag → H1"
+        what: >-
+          The H1 heading — the main on-page title.
+        how: >-
+          In Webflow, select your main heading element and set its tag to H1 in
+          the element settings. Use H1 only once.
+        why: >-
+          The H1 confirms the page topic to crawlers. Multiple H1s or a missing
+          one muddies the relevance signal.
+      - id: "heading-hierarchy"
+        n: 16
+        title: "Build a logical heading hierarchy (H1–H6)"
+        summary: "Nest headings in order — never skip levels or use a heading just for big text."
+        impact: "high"
+        effort: "medium"
+        what: >-
+          H1 → H2 (sections) → H3 (subsections), with keyword variations in your
+          H2s.
+        how: >-
+          Set the correct tag on each heading element via the tag dropdown;
+          never style a paragraph to look like a heading.
+        why: >-
+          The hierarchy is how crawlers and screen readers understand your
+          content's structure — and it is a major input for AEO chunking
+          (Phase VII).
+      - id: "keyword-slug"
+        n: 17
+        title: "Put the keyword in the URL slug"
+        summary: "Short, descriptive, hyphenated slugs that include the keyword."
+        impact: "high"
+        effort: "super-easy"
+        webflowPath: "Page settings → Slug"
+        what: >-
+          A slug like /webflow-seo-checklist — 3–5 words, hyphens not
+          underscores, no stop words, under ~75 characters.
+        how: >-
+          Page settings → edit the Slug field. For CMS items, set a clean slug
+          pattern in the Collection.
+        why: >-
+          Keyword-rich URLs reinforce relevance and read more clearly in
+          results, lifting CTR. If you change a slug later, always add a 301.
+      - id: "keyword-intro"
+        n: 18
+        title: "Front-load the keyword in the opening paragraph"
+        summary: "Get the primary keyword into the first 100–150 characters of body copy."
+        impact: "high"
+        effort: "super-easy"
+        what: >-
+          A natural, early mention of the term in the intro.
+        how: >-
+          Write the first sentence to directly state what the page is about,
+          keyword included — no throat-clearing windup.
+        why: >-
+          Both search crawlers and AI answer engines weight the opening heavily
+          when judging relevance and extracting answers.
+      - id: "image-alt"
+        n: 19
+        title: "Add descriptive alt text to every meaningful image"
+        summary: "Describe the image's purpose in ≤125 characters, with keywords where natural."
+        impact: "high"
+        effort: "easy"
+        webflowPath: "Image settings → Alt text"
+        what: >-
+          The alt attribute — e.g. "Webflow SEO settings panel showing the
+          sitemap toggle," not "screenshot."
+        how: >-
+          Select the image → Settings → Alt Text. For bulk CMS work, an app like
+          FlowSEO can generate alt text at scale.
+        why: >-
+          Alt text powers image search, gives screen-reader users context, and
+          provides fallback text if an image fails to load.
+      - id: "open-graph"
+        n: 20
+        title: "Set Open Graph title, description, and image per page"
+        summary: "Control how each page looks when shared on social and in chat apps."
+        impact: "high"
+        effort: "easy"
+        webflowPath: "Page settings → Open Graph settings"
+        what: >-
+          OG tags that drive the preview card on LinkedIn, X, Facebook, Slack,
+          and iMessage.
+        how: >-
+          Page settings → Open Graph settings. Set a unique title, description,
+          and a 1200×630px image per page (OG cannot be set globally).
+        why: >-
+          Polished share previews lift click-throughs on social, an increasingly
+          important discovery and link-earning channel.
+      - id: "semantic-html"
+        n: 21
+        title: "Use HTML5 semantic tags for page structure"
+        summary: "Build sections with meaningful tags instead of generic divs everywhere."
+        impact: "medium"
+        effort: "easy"
+        webflowPath: "Element settings → Tag dropdown"
+        what: >-
+          Real landmarks instead of div soup — header (intro/logo/nav area), nav
+          (menus), main (the one unique body), article (a blog post or CMS item),
+          section (each thematic block), aside (sidebars, related links), and
+          footer (legal, sitemap).
+        how: >-
+          Select a Section, Container, or Div Block → in element settings use the
+          Tag dropdown to assign the correct HTML5 tag. No code required.
+        why: >-
+          Semantic tags tell crawlers and screen readers what each region is
+          (versus an undifferentiated soup of divs), which improves
+          accessibility, indexing, and — critically — how cleanly AI engines
+          parse and cite your page.
+        code:
+          lang: "html"
+          label: "What clean semantic structure looks like"
+          snippet: |-
+            <header> … logo + nav … </header>
+            <main>
+              <article>
+                <h1>Page title</h1>
+                <section> … </section>
+                <section> … </section>
+              </article>
+              <aside> … related links … </aside>
+            </main>
+            <footer> … legal + sitemap … </footer>
+      - id: "internal-links"
+        n: 22
+        title: "Add internal links with descriptive anchor text"
+        summary: "Link each page to related pages using keyword-rich, descriptive anchors."
+        impact: "high"
+        effort: "easy"
+        what: >-
+          Contextual links like "see our Webflow SEO checklist" — never
+          "click here."
+        how: >-
+          Add text links in rich-text and link blocks; deliberately point to
+          your most important money pages.
+        why: >-
+          Internal linking is one of the two highest-leverage technical SEO
+          factors — it spreads authority and tells engines which pages matter
+          most.
+      - id: "external-links"
+        n: 23
+        title: "Set external links to open in a new tab where appropriate"
+        summary: "Keep your site open when sending users to third-party pages."
+        impact: "low"
+        effort: "super-easy"
+        webflowPath: "Link settings → Open in new tab"
+        what: >-
+          target="_blank" on outbound links (Webflow adds rel="noopener"
+          automatically).
+        how: >-
+          Select the link → Settings → check Open in new tab.
+        why: >-
+          It preserves the session and engagement on your page; also review
+          outbound links periodically so you are not linking to sites that have
+          gone bad.
+
+  # =========================================================================
+  - id: "performance"
+    number: "IV"
+    title: "Performance & Core Web Vitals"
+    blurb: "Fast pages rank better and convert better."
+    items:
+      - id: "compress-images"
+        n: 24
+        title: "Compress images and convert to WebP / AVIF"
+        summary: "Ship the smallest possible image files in modern formats."
+        impact: "high"
+        effort: "super-easy"
+        what: >-
+          Compressed images served as WebP or AVIF instead of heavy JPEG/PNG.
+        how: >-
+          Pre-compress with TinyPNG or ImageOptim, then use Webflow's built-in
+          image conversion tool to convert assets (and CMS images) to WebP/AVIF
+          in bulk.
+        why: >-
+          Images are usually the heaviest thing on a page; shrinking them is the
+          fastest win for load speed and the LCP metric.
+      - id: "lazy-load"
+        n: 25
+        title: "Lazy-load below-the-fold media, eager-load the hero"
+        summary: "Defer off-screen images; load the above-the-fold hero immediately."
+        impact: "high"
+        effort: "super-easy"
+        webflowPath: "Image settings → Loading"
+        what: >-
+          loading="lazy" on below-fold images, loading="eager" on the hero.
+        how: >-
+          Webflow lazy-loads by default; for your main hero image, switch the
+          loading setting to Eager in image settings.
+        why: >-
+          Lazy-loading cuts initial page weight; eager-loading the hero prevents
+          a slow, janky LCP for the first thing users see.
+      - id: "minify"
+        n: 26
+        title: "Enable CSS, JS, and HTML minification"
+        summary: "Strip whitespace and comments from your code on publish."
+        impact: "high"
+        effort: "super-easy"
+        webflowPath: "Site settings → Publishing → Advanced (minify)"
+        what: >-
+          Minified asset files that download faster.
+        how: >-
+          Site settings → Publishing → toggle on minification for HTML, CSS, and
+          JavaScript. Three switches, done.
+        why: >-
+          Smaller files mean faster render and better Core Web Vitals —
+          essentially free performance.
+      - id: "defer-js"
+        n: 27
+        title: "Defer / async non-critical JavaScript"
+        summary: "Don't let third-party scripts block the page from rendering."
+        impact: "medium"
+        effort: "easy"
+        what: >-
+          defer or async on custom and embed scripts (analytics, chat widgets,
+          and the like).
+        how: >-
+          Add defer to script tags in custom code; load non-essential widgets
+          after the main content.
+        why: >-
+          Render-blocking scripts delay both LCP and INP. Deferring them keeps
+          the page interactive faster.
+        code:
+          lang: "html"
+          label: "Defer a non-critical script"
+          snippet: |-
+            <script src="/widget.js" defer></script>
+      - id: "fonts"
+        n: 28
+        title: "Optimise fonts and reduce font-loading time"
+        summary: "Limit custom font weights and serve them efficiently."
+        impact: "medium"
+        effort: "medium"
+        what: >-
+          A small set of font weights with sensible fallback behaviour
+          (font-display: swap).
+        how: >-
+          Use only the weights you actually need; host fonts via Webflow; avoid
+          loading many custom families.
+        why: >-
+          Heavy or render-blocking fonts cause layout shift (CLS) and slow text
+          paint.
+      - id: "reserve-space"
+        n: 29
+        title: "Reserve space for media to prevent layout shift (CLS)"
+        summary: "Give images, embeds, and ads explicit dimensions so the page doesn't jump."
+        impact: "medium"
+        effort: "medium"
+        what: >-
+          Defined width/height (or aspect ratio) on media; no content injected
+          above existing content after load.
+        how: >-
+          Set sizing on image and embed elements; size background images
+          appropriately; avoid late-loading banners that push content down.
+        why: >-
+          Cumulative Layout Shift under 0.1 is a Core Web Vital; jumpy layouts
+          frustrate users and hurt the score.
+      - id: "srcset"
+        n: 30
+        title: "Confirm responsive images (srcset) are working"
+        summary: "Serve appropriately-sized images per device."
+        impact: "high"
+        effort: "super-easy"
+        what: >-
+          srcset / sizes so phones get small images and desktops get large ones.
+        how: >-
+          Webflow generates responsive variants automatically on upload —
+          nothing to do, just verify in dev tools that variants are being served.
+        why: >-
+          It can make mobile pages load several times faster by not shipping
+          desktop-size images to phones.
+      - id: "unused-css"
+        n: 31
+        title: "Delete unused CSS classes and interactions"
+        summary: "Clean out orphaned styles before launch."
+        impact: "low"
+        effort: "super-easy"
+        webflowPath: "Style Selectors panel → Clean up"
+        what: >-
+          Removal of classes no element uses anymore.
+        how: >-
+          In the Style Selectors panel, click the broom icon → Remove unused
+          classes.
+        why: >-
+          Less CSS means a lighter, faster-parsing stylesheet.
+
+  # =========================================================================
+  - id: "mobile-ux-a11y"
+    number: "V"
+    title: "Mobile, UX & Accessibility"
+    blurb: "Google indexes mobile-first, and accessible sites rank and convert better."
+    items:
+      - id: "responsive"
+        n: 32
+        title: "Make the site fully responsive and mobile-tested"
+        summary: "Every page must work cleanly on phone, tablet, and desktop."
+        impact: "critical"
+        effort: "medium"
+        what: >-
+          Layouts that adapt across all Webflow breakpoints.
+        how: >-
+          Design desktop-first, then adjust each smaller breakpoint; use
+          Webflow's preview and real-device testing before publishing.
+        why: >-
+          Google uses mobile-first indexing — it ranks based on your mobile
+          experience. A broken mobile layout caps your rankings outright.
+      - id: "tap-targets"
+        n: 33
+        title: "Use touch-friendly tap targets"
+        summary: "Buttons and links large and spaced enough for thumbs."
+        impact: "high"
+        effort: "medium"
+        what: >-
+          Interactive targets at least 44×44px with adequate spacing.
+        how: >-
+          Size buttons and links generously on mobile breakpoints; add padding
+          between adjacent tappable elements.
+        why: >-
+          Cramped targets cause mis-taps and frustration, raising mobile bounce
+          — a negative engagement signal.
+      - id: "navigation"
+        n: 34
+        title: "Design clear, simple navigation"
+        summary: "An intuitive menu with a sticky bar and a complete footer."
+        impact: "high"
+        effort: "medium"
+        what: >-
+          6–7 primary nav items, logical dropdowns, a sticky header, and a
+          footer sitemap.
+        how: >-
+          Use Webflow's Navbar element; keep labels plain; surface key pages,
+          bury the rest in the footer.
+        why: >-
+          Clear navigation reduces bounce, distributes link equity, and helps
+          crawlers map your site.
+      - id: "contrast"
+        n: 35
+        title: "Ensure sufficient colour contrast (WCAG AA)"
+        summary: "Text must be legible against its background."
+        impact: "medium"
+        effort: "super-easy"
+        what: >-
+          4.5:1 contrast for body text, 3:1 for large text, borders, and icons.
+        how: >-
+          Webflow's built-in accessibility audit and contrast checker flag
+          failures; fix colours until they pass.
+        why: >-
+          Contrast is a core accessibility requirement and improves readability
+          for everyone, especially on mobile in sunlight.
+      - id: "keyboard-aria"
+        n: 36
+        title: "Support keyboard navigation and ARIA landmarks"
+        summary: "The site must be usable without a mouse and legible to screen readers."
+        impact: "medium"
+        effort: "medium"
+        what: >-
+          Tab-navigable menus and forms; ARIA roles and landmarks where semantic
+          tags are not enough.
+        how: >-
+          Test tab order; add ARIA attributes via custom attributes on elements;
+          pair with the semantic tags from item 21.
+        why: >-
+          Accessibility is both an ethical baseline and an SEO signal —
+          accessible structure is easier for crawlers and AI to parse.
+      - id: "animations"
+        n: 37
+        title: "Keep animations simple and respect reduced-motion"
+        summary: "Animations should enhance, not block content or cause motion sickness."
+        impact: "low"
+        effort: "easy"
+        what: >-
+          Lightweight interactions that honour the user's reduced-motion
+          preference.
+        how: >-
+          Avoid heavy scroll effects on critical content; prefer Lottie/SVG over
+          GIFs; keep above-the-fold mostly static.
+        why: >-
+          Excessive animation hurts performance, accessibility, and can delay
+          LCP/INP.
+
+  # =========================================================================
+  - id: "launch"
+    number: "VI"
+    title: "Launch Day & Verification"
+    blurb: "The pre-publish pass that catches ranking-killers."
+    items:
+      - id: "audit"
+        n: 38
+        title: "Run Webflow's built-in SEO & accessibility audit"
+        summary: "Catch missing titles, alt text, and structure issues before publishing."
+        impact: "high"
+        effort: "super-easy"
+        webflowPath: "Designer → Audit panel"
+        what: >-
+          A pre-publish audit pass on every page.
+        how: >-
+          Use Webflow's Audit panel in the Designer (and/or an app like AI SEO
+          Copilot or FlowSEO) → review → fix → re-run.
+        why: >-
+          It is the cheapest way to catch the silly, ranking-killing omissions a
+          human reviewer misses.
+      - id: "verify-links"
+        n: 39
+        title: "Verify every internal link resolves"
+        summary: "No broken links, no dead ends."
+        impact: "high"
+        effort: "easy"
+        what: >-
+          Confirmation that all internal links point to live pages.
+        how: >-
+          Crawl with Screaming Frog (or a sitemap-based URL checker) and fix any
+          404s before launch.
+        why: >-
+          Broken links waste crawl budget, leak authority, and frustrate users.
+      - id: "redirects"
+        n: 40
+        title: "Map 301 redirects for any changed URLs"
+        summary: "Permanently redirect old URLs to new ones if you're migrating or changed slugs."
+        impact: "high"
+        effort: "medium"
+        webflowPath: "Site settings → Publishing → 301 redirects"
+        what: >-
+          301 redirect rules from every old URL to its new equivalent.
+        how: >-
+          List old URLs (Screaming Frog), list new URLs, then add rules in Site
+          settings → Publishing → 301 Redirects.
+        why: >-
+          301s carry over the link equity of old pages and stop visitors hitting
+          404s — essential on any migration.
+      - id: "search-console"
+        n: 41
+        title: "Verify in Google Search Console & Bing Webmaster Tools"
+        summary: "Claim your site so you can monitor indexing and performance."
+        impact: "high"
+        effort: "super-easy"
+        webflowPath: "Site settings → SEO → Google Search Console"
+        what: >-
+          A verified property in GSC and Bing Webmaster Tools.
+        how: >-
+          Add the verification meta into Site settings → SEO → head code (or use
+          the built-in GSC field), publish, then verify. Repeat for Bing.
+        why: >-
+          Search Console is your direct line to Google — index status, errors,
+          queries, and AI/search performance all live here.
+      - id: "submit-sitemap"
+        n: 42
+        title: "Submit your sitemap to Google and Bing"
+        summary: "Tell the engines exactly where your sitemap lives."
+        impact: "high"
+        effort: "super-easy"
+        what: >-
+          Sitemap URL submitted in both consoles.
+        how: >-
+          GSC → Sitemaps → enter sitemap.xml → Submit. Same in Bing Webmaster
+          Tools.
+        why: >-
+          It triggers faster crawling and indexing of a brand-new site that has
+          no inbound links yet.
+      - id: "analytics"
+        n: 43
+        title: "Install analytics (GA4 and/or a privacy-first tool)"
+        summary: "Start collecting behaviour data from day one."
+        impact: "high"
+        effort: "super-easy"
+        webflowPath: "Site settings → Custom Code → Head"
+        what: >-
+          GA4 (and optionally a cookieless tool like Plausible or Cloudflare Web
+          Analytics) tracking installed — often via Google Tag Manager.
+        how: >-
+          Paste the tracking or GTM snippet into Site settings → Custom Code →
+          Head, save, publish.
+        why: >-
+          You cannot improve what you do not measure — and you will want a
+          baseline before traffic arrives.
+      - id: "lighthouse"
+        n: 44
+        title: "Run a Lighthouse / PageSpeed pass"
+        summary: "Benchmark Core Web Vitals on key pages and fix the worst offenders."
+        impact: "high"
+        effort: "medium"
+        what: >-
+          Lighthouse/PageSpeed Insights scores for LCP (<2.5s), INP (low), CLS
+          (<0.1).
+        how: >-
+          Run pagespeed.web.dev on your homepage and top templates; act on the
+          flagged opportunities.
+        why: >-
+          Core Web Vitals are a confirmed ranking input and a direct proxy for
+          user experience.
+      - id: "duplicate-hreflang"
+        n: 45
+        title: "Handle duplicate content & hreflang (if multilingual)"
+        summary: "Disambiguate similar pages and language variants."
+        impact: "medium"
+        effort: "medium"
+        what: >-
+          Canonical tags for near-duplicates; hreflang tags for language/region
+          variants.
+        how: >-
+          Use Webflow Localization for multilingual sites (it handles hreflang);
+          add canonicals where content overlaps across subdomains.
+        why: >-
+          Duplicate content splits and confuses ranking signals; hreflang serves
+          the right language version to the right audience.
+
+  # =========================================================================
+  - id: "aeo"
+    number: "VII"
+    title: "AEO — Get Cited by AI Answer Engines"
+    blurb: "Optimise so ChatGPT, Perplexity, and Google AI Overviews select and cite you."
+    items:
+      - id: "answer-first"
+        n: 46
+        title: "Write answer-first content"
+        summary: "Lead every section with a direct, 40–60 word answer to the question its heading implies."
+        impact: "high"
+        effort: "easy"
+        what: >-
+          The inverted pyramid — answer first, supporting detail after.
+          Definitions in extractable form: "[Term] is [clear definition]."
+        how: >-
+          Write each H2 so its first sentence answers the heading; cut windup
+          intros like "In today's landscape…".
+        why: >-
+          AI engines extract the first 1–2 sentences of a section to decide if
+          it answers the query. Vague openings get skipped for a competitor's.
+      - id: "chunking"
+        n: 47
+        title: "Structure content in self-contained chunks"
+        summary: "One concept per section, 200–400 words, with descriptive question-style headings."
+        impact: "high"
+        effort: "medium"
+        what: >-
+          Semantic chunking — do not mix a definition with a how-to in the same
+          block; give each fact its own structural home.
+        how: >-
+          Use clear H2/H3s (questions work well), bullets and numbered lists for
+          processes, comparison tables for evaluations, and a table of contents.
+        why: >-
+          Answer engines parse by section, not by page. Self-contained sections
+          are far more likely to be lifted and cited.
+      - id: "faq-schema"
+        n: 48
+        title: "Add an FAQ section with FAQPage schema"
+        summary: "This is the single highest-ROI AEO move."
+        impact: "critical"
+        effort: "medium"
+        webflowPath: "Page settings → Custom Code → Head (or an Embed)"
+        what: >-
+          A visible FAQ on the page, mirrored in FAQPage JSON-LD. Phrase
+          questions the way people ask an assistant ("how much," "how long,"
+          "can I"); keep each answer 40–70 words. Pages with FAQPage markup are
+          ~3.2× more likely to appear in Google AI Overviews, and FAQ schema's
+          citation rate in AI answers runs ~41% versus ~15% without it.
+        how: >-
+          Build the visible FAQ as content, then paste the JSON-LD into Page
+          settings → Custom Code → Head (or an Embed).
+        why: >-
+          FAQ pairs map exactly to how people query AI. The markup hands the
+          engine a ready-made question-and-answer in its native format —
+          minimal interpretation, maximum citation odds.
+        code:
+          lang: "html"
+          label: "FAQPage JSON-LD"
+          snippet: |-
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [{
+                "@type": "Question",
+                "name": "How do I improve SEO on a Webflow site?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Set unique meta titles and descriptions, one keyword-led H1 per page, clean semantic structure, fast images, and add FAQPage schema."
+                }
+              }]
+            }
+            </script>
+      - id: "org-schema"
+        n: 49
+        title: "Add Organization schema with sameAs links"
+        summary: "Define your business as a single, verifiable entity."
+        impact: "high"
+        effort: "medium"
+        webflowPath: "Site settings → Custom Code → Head"
+        what: >-
+          Organization JSON-LD on the homepage with name, url, logo,
+          contactPoint, and a sameAs array linking your LinkedIn, Crunchbase,
+          Wikidata, and social profiles.
+        how: >-
+          Paste the JSON-LD into Site settings → Custom Code → Head (so it loads
+          site-wide).
+        why: >-
+          sameAs lets engines confirm you are one real entity across independent
+          sources — the foundation of entity clarity that makes AI confident
+          enough to name you.
+        code:
+          lang: "html"
+          label: "Organization JSON-LD"
+          snippet: |-
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Your Studio",
+              "url": "https://yourdomain.com",
+              "logo": "https://yourdomain.com/logo.png",
+              "sameAs": [
+                "https://www.linkedin.com/company/your-studio",
+                "https://www.instagram.com/your-studio"
+              ]
+            }
+            </script>
+      - id: "typed-schema"
+        n: 50
+        title: "Add Article, Product, BreadcrumbList & LocalBusiness schema where relevant"
+        summary: "Match schema type to page type."
+        impact: "medium"
+        effort: "medium"
+        webflowPath: "CMS Collection template → Embed (bind fields)"
+        what: >-
+          Article or BlogPosting on posts, Product + Offer on shop pages,
+          BreadcrumbList for hierarchy, LocalBusiness on contact/location pages.
+        how: >-
+          For CMS Collections, build the JSON-LD in an Embed inside the template
+          and bind fields to CMS values so each item gets correct markup
+          automatically.
+        why: >-
+          Typed markup makes facts (author, date, price, stock, address)
+          machine-readable and unlocks rich results — Google has cited an 82% CTR
+          lift on pages earning rich results.
+        code:
+          lang: "html"
+          label: "BlogPosting JSON-LD (bind the bracketed fields to CMS)"
+          snippet: |-
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "headline": "[Post title]",
+              "datePublished": "[Published date]",
+              "author": { "@type": "Person", "name": "[Author]" }
+            }
+            </script>
+      - id: "schema-parity"
+        n: 51
+        title: "Enforce schema-content parity and validate"
+        summary: "Every fact in your schema must appear in the visible page content — no exceptions."
+        impact: "critical"
+        effort: "easy"
+        what: >-
+          An exact match between JSON-LD and on-page content (founding date,
+          price, FAQ answers, and so on).
+        how: >-
+          Validate with Google's Rich Results Test and the Schema.org validator
+          before publishing; re-check after CMS edits.
+        why: >-
+          Mismatched schema (a price not on the page, an FAQ answer that differs)
+          is a Google policy risk and erodes machine trust — and some AI engines
+          read only the visible HTML anyway.
+      - id: "entity-consistency"
+        n: 52
+        title: "Add inline statistics, citations, and entity consistency"
+        summary: "Back claims with specific numbers and consistent terminology."
+        impact: "medium"
+        effort: "medium"
+        what: >-
+          A concrete statistic every ~150–200 words, linked to the original
+          source; consistent naming of your brand and key terms; mentions of
+          related entities (e.g. Google, ChatGPT, Perplexity) for semantic
+          context.
+        how: >-
+          Cite .gov/.edu/industry sources, use exact figures not "significant
+          growth," and keep your terminology consistent throughout.
+        why: >-
+          AI engines favour specific, well-sourced, entity-clear content and
+          recently-updated pages — they cite content that is easy to trust and
+          attribute.
+
+doFirst:
+  heading: "The Do-First Shortlist"
+  intro: >-
+    If you only do ten things, these are the highest impact-to-effort moves
+    across the whole list. Knock these out first, then work the rest by phase.
+  items:
+    - "Disable Webflow subdomain indexing (#4) — critical, one toggle."
+    - "Unique meta title + description per page (#13, #14)."
+    - "One keyword-led H1 + logical heading hierarchy (#15, #16)."
+    - "Keyword-rich slugs (#17)."
+    - "Enable sitemap + submit to Search Console (#7, #42)."
+    - "Compress images to WebP/AVIF + minify code (#24, #26)."
+    - "Mobile-test every page (#32)."
+    - "Internal links with descriptive anchors (#22)."
+    - "FAQ section with FAQPage schema (#48) — your top AEO lever."
+    - "Organization schema with sameAs (#49)."
+  afterLaunch: >-
+    SEO and AEO are ongoing, not one-time. Monitor Search Console weekly for
+    index/coverage errors, keep content fresh (AI engines favour
+    recently-updated pages), publish useful new pages on a cadence, earn
+    backlinks and third-party mentions, and re-run Lighthouse after any major
+    design change.
+
+faq:
+  - q: "What is the difference between SEO and AEO?"
+    a: >-
+      SEO (Search Engine Optimization) gets your pages to rank in a list of blue
+      links on Google. AEO (Answer Engine Optimization) gets your content
+      selected and cited inside an AI-generated answer in ChatGPT, Perplexity,
+      or Google AI Overviews. They overlap heavily — nearly every AEO practice
+      also improves classic SEO — but AEO shifts the unit of optimisation from
+      the page to the individual, independently-citable fact.
+  - q: "What is the most important Webflow SEO setting before launch?"
+    a: >-
+      Disabling Webflow subdomain (staging) indexing. In Site settings → SEO →
+      Indexing, toggle it on so your your-site.webflow.io staging copy is not
+      indexed as duplicate content competing with your live domain. It is one
+      switch and the single most-missed Webflow launch step.
+  - q: "How do I get my Webflow site cited by AI like ChatGPT and Perplexity?"
+    a: >-
+      Write answer-first content, structure it in self-contained chunks with
+      question-style headings, and add schema — especially FAQPage and
+      Organization JSON-LD with sameAs links. Pages with FAQ markup are around
+      3.2× more likely to appear in Google AI Overviews. Keep every schema fact
+      visible on the page and back claims with specific, sourced statistics.
+  - q: "Does Webflow handle SEO automatically?"
+    a: >-
+      Partly. Webflow auto-generates a sitemap and self-referencing canonicals,
+      serves responsive images and SSL, and gives you fields for titles, meta
+      descriptions, slugs, and Open Graph. But the high-impact work — keyword
+      mapping, one H1 per page, clean heading hierarchy, internal linking,
+      performance, and schema — is on you. This checklist covers all of it.
+  - q: "How long does it take to see SEO results from a new Webflow site?"
+    a: >-
+      Typically three to six months for a new site to build enough trust and
+      indexing history to rank for competitive terms, though AEO citations and
+      long-tail rankings can come sooner. A checklist makes you technically
+      eligible to compete quickly; durable rankings still need useful content,
+      internal links, and earned mentions over time.
+  - q: "Is FAQ schema still worth adding in 2026?"
+    a: >-
+      Yes — but for AEO rather than classic rich results. Google reduced FAQ
+      rich snippets in regular search, but FAQPage markup remains one of the
+      strongest signals for AI answer engines: it hands them a ready-made
+      question-and-answer pair in their native format, and FAQ-marked pages cite
+      at roughly 41% versus 15% without it.
+
+sources:
+  - label: "Sofian Bettayeb — Webflow SEO Checklist"
+    url: "https://www.checklist-seo.com/webflow/docs/implementation"
+  - label: "Webflow University — SEO checklist"
+    url: "https://university.webflow.com/resources/seo-checklist"
+  - label: "Webflow Blog — Technical SEO checklist"
+    url: "https://webflow.com/blog/technical-seo"
+  - label: "Webflow Blog — SEO checklist for site migration"
+    url: "https://webflow.com/blog/seo-checklist-for-site-migration"
+  - label: "Semrush — Technical SEO checklist"
+    url: "https://www.semrush.com/blog/technical-seo-checklist/"
+  - label: "DashThis — Technical SEO checklist"
+    url: "https://dashthis.com/blog/technical-seo-checklist/"

@@ -1,0 +1,311 @@
+---
+import Base from '../layouts/Base.astro';
+import ProgressHeader from '../components/ProgressHeader.astro';
+import ChecklistItem from '../components/ChecklistItem.astro';
+import FAQ from '../components/FAQ.astro';
+import { checklist } from '../data/checklist';
+
+const { hero, howToUse, phases, doFirst, sources, site } = checklist;
+const updated = new Date(site.updated).toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<Base>
+  <ProgressHeader />
+
+  <main id="main">
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow hero__eyebrow">{hero.eyebrow} · Updated {updated}</p>
+        <h1 class="hero__heading">{hero.heading}</h1>
+        <p class="hero__lead">{hero.lead}</p>
+        <dl class="stats">
+          {hero.stats.map((s) => (
+            <div class="stats__item">
+              <dt class="stats__value">{s.value}</dt>
+              <dd class="stats__label">{s.label}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <!-- ================= HOW TO USE ================= -->
+    <section class="howto" aria-labelledby="howto-heading">
+      <div class="container howto__grid">
+        <div class="howto__intro">
+          <p class="eyebrow">Mindset</p>
+          <h2 id="howto-heading">{howToUse.heading}</h2>
+          <p class="howto__lead">{howToUse.intro}</p>
+          {howToUse.notes.map((n) => <p class="howto__note">{n}</p>)}
+        </div>
+        <ul class="legend">
+          {howToUse.ratings.map((r) => (
+            <li class={`legend__item legend--${r.key}`}>
+              <span class="legend__dot" aria-hidden="true"></span>
+              <span><strong>{r.label}</strong> — {r.desc}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= CONTENTS / PHASE NAV ================= -->
+    <nav class="contents" aria-label="Checklist phases">
+      <div class="container">
+        <p class="eyebrow">Contents</p>
+        <ol class="contents__list">
+          {phases.map((p) => (
+            <li>
+              <a class="contents__link" href={`#${p.id}`} data-phase-link={p.id}>
+                <span class="contents__num">{p.number}</span>
+                <span class="contents__title">{p.title}</span>
+                <span class="contents__count" data-phase-progress={p.id}>0/{p.items.length}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </nav>
+
+    <!-- ================= PHASES ================= -->
+    {phases.map((phase) => (
+      <section class="phase" id={phase.id} data-phase-group={phase.id} aria-labelledby={`${phase.id}-heading`}>
+        <div class="container">
+          <header class="phase__head">
+            <span class="phase__num" aria-hidden="true">{phase.number}</span>
+            <div class="phase__headtext">
+              <h2 id={`${phase.id}-heading`} class="phase__title">{phase.title}</h2>
+              <p class="phase__blurb">{phase.blurb}</p>
+            </div>
+            <span class="phase__progress" data-phase-progress={phase.id} aria-hidden="true">0/{phase.items.length}</span>
+          </header>
+          <div class="phase__items">
+            {phase.items.map((item) => <ChecklistItem item={item} />)}
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- ================= DO-FIRST SHORTLIST ================= -->
+    <section class="dofirst" aria-labelledby="dofirst-heading">
+      <div class="container">
+        <p class="eyebrow">Priority</p>
+        <h2 id="dofirst-heading">{doFirst.heading}</h2>
+        <p class="dofirst__lead">{doFirst.intro}</p>
+        <ul class="dofirst__list">
+          {doFirst.items.map((d) => <li>{d}</li>)}
+        </ul>
+        <div class="dofirst__after">
+          <p class="eyebrow">After launch</p>
+          <p>{doFirst.afterLaunch}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <FAQ />
+
+    <!-- ================= SOURCES ================= -->
+    <section class="sources" aria-labelledby="sources-heading">
+      <div class="container">
+        <p class="eyebrow">Built from</p>
+        <h2 id="sources-heading" class="sources__heading">Sources</h2>
+        <ul class="sources__list">
+          {sources.map((s) => (
+            <li>
+              <a class="link" href={s.url} target="_blank" rel="noopener">{s.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <p class="footer__title">The Ultimate Webflow SEO &amp; AEO Checklist</p>
+        <p class="footer__sub">A field guide for shipping Webflow sites that rank and get cited.</p>
+      </div>
+      <a class="footer__cta" href="https://www.milkmoonstudio.com" target="_blank" rel="noopener">
+        Built by Milk Moon Studio
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    import '../scripts/progress.js';
+  </script>
+</Base>
+
+<style>
+  /* ---------------- HERO ---------------- */
+  .hero { padding-block: clamp(3rem, 9vw, 7rem) clamp(2rem, 5vw, 3.5rem); }
+  .hero__eyebrow { margin-bottom: 1.5rem; }
+  .hero__heading { max-width: 16ch; margin-bottom: 1.6rem; }
+  .hero__lead {
+    max-width: 62ch;
+    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+    color: var(--text-dim);
+    line-height: 1.55;
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .stats__value {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: var(--lilac);
+    line-height: 1;
+  }
+  .stats__label { margin-top: 0.6rem; font-size: 0.85rem; color: var(--text-faint); line-height: 1.4; }
+  @media (max-width: 720px) {
+    .stats { grid-template-columns: repeat(2, 1fr); gap: 1.75rem 1.5rem; }
+  }
+
+  /* ---------------- HOW TO USE ---------------- */
+  .howto { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+  .howto__grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+  .howto h2 { margin: 0.4rem 0 1.2rem; }
+  .howto__lead { color: var(--text-dim); font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.4rem; }
+  .howto__note { color: var(--text-faint); font-size: 0.92rem; line-height: 1.6; margin-bottom: 0.9rem; }
+  .legend { list-style: none; padding: 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); display: grid; gap: 1rem; }
+  .legend__item { display: grid; grid-template-columns: auto 1fr; gap: 0.75rem; align-items: start; font-size: 0.9rem; color: var(--text-dim); line-height: 1.5; }
+  .legend__item strong { color: var(--white); }
+  .legend__dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; margin-top: 0.35rem; background: var(--grey); }
+  .legend--critical .legend__dot { background: var(--impact-critical); }
+  .legend--high .legend__dot { background: var(--impact-high); }
+  .legend--medium .legend__dot { background: var(--impact-medium); }
+  .legend--low .legend__dot { background: var(--impact-low); }
+  @media (max-width: 800px) { .howto__grid { grid-template-columns: 1fr; } }
+
+  /* ---------------- CONTENTS ---------------- */
+  .contents { padding-block: clamp(2rem, 5vw, 3.5rem); }
+  .contents__list { list-style: none; counter-reset: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: 0; margin-top: 1rem; border-top: 1px solid var(--border); }
+  .contents__link {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text-dim);
+    transition: color 0.18s var(--ease), background 0.18s var(--ease);
+  }
+  .contents__link:hover { color: var(--white); background: var(--bg-raised); }
+  .contents__num { font-family: var(--font-display); font-size: 1.2rem; color: var(--purple); }
+  .contents__title { font-weight: 500; }
+  .contents__count { font-size: 0.8rem; color: var(--text-faint); font-variant-numeric: tabular-nums; }
+  .contents__link.is-complete .contents__count { color: var(--lilac); }
+  .contents__link.is-complete .contents__num { color: var(--lilac); }
+  @media (max-width: 720px) { .contents__list { grid-template-columns: 1fr; } }
+
+  /* ---------------- PHASE ---------------- */
+  .phase { padding-block: clamp(2rem, 5vw, 3.5rem); }
+  .phase__head {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 2rem);
+    padding-bottom: 0.5rem;
+  }
+  .phase__num {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: var(--grey-dark);
+    line-height: 0.8;
+    -webkit-text-stroke: 1px var(--grey);
+    color: transparent;
+  }
+  .phase__title { font-size: clamp(1.7rem, 3.5vw, 2.7rem); }
+  .phase__blurb { color: var(--text-faint); margin-top: 0.35rem; font-size: 0.98rem; }
+  .phase__progress {
+    font-size: 0.85rem;
+    color: var(--text-faint);
+    font-variant-numeric: tabular-nums;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 0.35rem 0.8rem;
+    white-space: nowrap;
+  }
+  @media (max-width: 600px) {
+    .phase__head { grid-template-columns: auto 1fr; }
+    .phase__progress { grid-column: 1 / -1; justify-self: start; }
+  }
+
+  /* ---------------- DO FIRST ---------------- */
+  .dofirst { padding-block: clamp(3rem, 7vw, 5.5rem); }
+  .dofirst h2 { margin: 0.4rem 0 1rem; }
+  .dofirst__lead { color: var(--text-dim); max-width: 60ch; margin-bottom: 1.8rem; line-height: 1.6; }
+  .dofirst__list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.85rem 2rem;
+    counter-reset: df;
+  }
+  .dofirst__list li {
+    position: relative;
+    padding-left: 2rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+    counter-increment: df;
+  }
+  .dofirst__list li::before {
+    content: counter(df);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: var(--font-display);
+    color: var(--lilac);
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+  .dofirst__after {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    border-left: 2px solid var(--purple);
+    background: var(--bg-card);
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .dofirst__after p:last-child { color: var(--text-dim); line-height: 1.6; margin-top: 0.4rem; }
+  @media (max-width: 720px) { .dofirst__list { grid-template-columns: 1fr; } }
+
+  /* ---------------- SOURCES ---------------- */
+  .sources { padding-block: clamp(2rem, 5vw, 3.5rem); }
+  .sources__heading { margin: 0.4rem 0 1.4rem; }
+  .sources__list { list-style: none; display: grid; gap: 0.7rem; }
+  .sources__list li { color: var(--text-faint); }
+
+  /* ---------------- FOOTER ---------------- */
+  .footer { border-top: 1px solid var(--border); padding-block: clamp(2.5rem, 5vw, 3.5rem); margin-top: 2rem; }
+  .footer__inner { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: space-between; }
+  .footer__title { font-family: var(--font-display); font-size: 1.3rem; color: var(--white); }
+  .footer__sub { color: var(--text-faint); font-size: 0.9rem; margin-top: 0.3rem; }
+  .footer__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    color: var(--black);
+    background: var(--lilac);
+    padding: 0.7rem 1.2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.18s var(--ease), background 0.18s var(--ease);
+  }
+  .footer__cta:hover { transform: translateY(-2px); background: var(--white); }
+</style>

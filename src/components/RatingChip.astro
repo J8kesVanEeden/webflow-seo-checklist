@@ -1,0 +1,60 @@
+---
+import type { Impact, Effort } from '../data/checklist';
+
+interface Props {
+  kind: 'impact' | 'effort';
+  value: Impact | Effort;
+}
+const { kind, value } = Astro.props;
+
+const labels: Record<string, string> = {
+  critical: 'Critical',
+  high: 'High',
+  medium: 'Medium',
+  low: 'Low',
+  'super-easy': 'Super easy',
+  easy: 'Easy',
+};
+const label = labels[value] ?? value;
+---
+
+<span class={`chip chip--${kind} chip--${value}`}>
+  {kind === 'impact' && <span class="chip__dot" aria-hidden="true"></span>}
+  <span class="chip__k">{kind === 'impact' ? 'Impact' : 'Effort'}</span>
+  <span class="chip__v">{label}</span>
+</span>
+
+<style>
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.34em 0.7em;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    white-space: nowrap;
+    line-height: 1;
+  }
+  .chip__k { color: var(--text-faint); }
+  .chip__v { color: var(--text-dim); }
+
+  .chip__dot {
+    width: 0.55em;
+    height: 0.55em;
+    border-radius: 50%;
+    background: var(--grey);
+    flex: none;
+  }
+  .chip--critical .chip__dot { background: var(--impact-critical); }
+  .chip--high .chip__dot { background: var(--impact-high); }
+  .chip--medium .chip__dot { background: var(--impact-medium); }
+  .chip--low .chip__dot { background: var(--impact-low); }
+
+  /* Impact chips get a subtle tinted border to draw the eye to priority. */
+  .chip--impact.chip--critical { border-color: rgba(255, 122, 122, 0.5); }
+  .chip--impact.chip--high { border-color: rgba(254, 247, 185, 0.4); }
+</style>

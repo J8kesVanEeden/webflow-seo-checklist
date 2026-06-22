@@ -1,0 +1,23 @@
+# build output
+dist/
+.astro/
+
+# deps
+node_modules/
+
+# env
+.env
+.env.production
+
+# os / editor
+.DS_Store
+*.log
+.vscode/
+.idea/
+
+# scratch
+_fontstmp/
+.remember/
+
+# source artifact, not for repo
+SEO.pdf

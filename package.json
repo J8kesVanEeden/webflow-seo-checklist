@@ -1,0 +1,23 @@
+{
+  "name": "webflow-seo-checklist",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "The Ultimate Webflow SEO & AEO Checklist — by Milk Moon Studio",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "^5.1.1",
+    "yaml": "^2.6.1",
+    "zod": "^3.24.1"
+  },
+  "allowScripts": {
+    "esbuild@0.27.7": true,
+    "esbuild@0.25.12": true,
+    "sharp@0.34.5": true
+  }
+}

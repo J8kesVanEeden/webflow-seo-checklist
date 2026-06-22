@@ -1,0 +1,7 @@
+# The Ultimate Webflow SEO & AEO Checklist — Milk Moon Studio
+# Everything is public and indexable. AI answer-engine crawlers welcome.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://seo.milkmoonstudio.com/sitemap-index.xml

@@ -1,0 +1,181 @@
+---
+import type { Item } from '../data/checklist';
+import RatingChip from './RatingChip.astro';
+
+interface Props {
+  item: Item;
+}
+const { item } = Astro.props;
+const titleId = `${item.id}-title`;
+---
+
+<article class="item" id={item.id} data-item-id={item.id}>
+  <div class="item__aside">
+    <label class="check" title="Mark complete">
+      <input
+        type="checkbox"
+        class="check__input js-item"
+        data-id={item.id}
+        aria-labelledby={titleId}
+      />
+      <span class="check__box" aria-hidden="true">
+        <svg viewBox="0 0 16 16" width="13" height="13"><path d="M2 8.5l3.5 3.5L14 3.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="check__num">{item.n}</span>
+    </label>
+
+    <h3 class="item__title" id={titleId}>{item.title}</h3>
+
+    <div class="chips">
+      <RatingChip kind="impact" value={item.impact} />
+      <RatingChip kind="effort" value={item.effort} />
+    </div>
+
+    {item.webflowPath && (
+      <p class="item__path">
+        <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg>
+        <span>{item.webflowPath}</span>
+      </p>
+    )}
+  </div>
+
+  <div class="item__body">
+    <p class="item__lead">{item.summary}</p>
+    <dl class="whw">
+      <div class="whw__row"><dt>What</dt><dd>{item.what}</dd></div>
+      <div class="whw__row"><dt>How</dt><dd>{item.how}</dd></div>
+      <div class="whw__row"><dt>Why</dt><dd>{item.why}</dd></div>
+    </dl>
+
+    {item.code && (
+      <figure class="code">
+        {item.code.label && <figcaption>{item.code.label}</figcaption>}
+        <pre><code>{item.code.snippet}</code></pre>
+      </figure>
+    )}
+  </div>
+</article>
+
+<style>
+  .item {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+    gap: clamp(1rem, 4vw, 3.5rem);
+    padding: clamp(1.75rem, 4vw, 2.75rem) 0;
+    border-top: 1px solid var(--border);
+    scroll-margin-top: 6rem;
+    transition: opacity 0.3s var(--ease);
+  }
+
+  /* ---- Left: checkbox + number, title, chips, path ---- */
+  .item__aside { min-width: 0; }
+
+  .check {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    user-select: none;
+  }
+  .check__input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+  }
+  .check__box {
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    flex: none;
+    border: 1.5px solid var(--border-strong);
+    border-radius: 7px;
+    color: var(--black);
+    background: transparent;
+    transition: background 0.18s var(--ease), border-color 0.18s var(--ease), transform 0.18s var(--ease);
+  }
+  .check__box svg { opacity: 0; transform: scale(0.6); transition: opacity 0.15s var(--ease), transform 0.15s var(--ease); }
+  .check__num {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--text-faint);
+    transition: color 0.18s var(--ease);
+  }
+  .check__input:focus-visible + .check__box { outline: 2px solid var(--lilac); outline-offset: 3px; }
+  .check:hover .check__box { border-color: var(--lilac); }
+
+  /* Checked state */
+  .item.is-done { opacity: 0.5; }
+  .item.is-done .check__box { background: var(--lilac); border-color: var(--lilac); }
+  .item.is-done .check__box svg { opacity: 1; transform: scale(1); }
+  .item.is-done .check__num { color: var(--lilac); }
+  .item.is-done .item__title { text-decoration: line-through; text-decoration-color: var(--text-faint); }
+
+  .item__title {
+    font-size: clamp(1.25rem, 2vw, 1.7rem);
+    line-height: 1.12;
+    margin-bottom: 1rem;
+    text-wrap: balance;
+  }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1rem; }
+
+  .item__path {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--text-faint);
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 0.4rem 0.65rem;
+  }
+  .item__path svg { color: var(--purple); flex: none; }
+
+  /* ---- Right: lead + What/How/Why + code ---- */
+  .item__body { min-width: 0; }
+  .item__lead {
+    font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 1.4rem;
+    text-wrap: pretty;
+  }
+
+  .whw { display: grid; gap: 0.9rem; }
+  .whw__row {
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    gap: 0.9rem;
+    align-items: baseline;
+  }
+  .whw dt {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--purple);
+    padding-top: 0.15rem;
+  }
+  .whw dd { color: var(--text-dim); line-height: 1.55; }
+
+  .code { margin-top: 1.4rem; }
+  .code figcaption {
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 800px) {
+    .item { grid-template-columns: 1fr; gap: 1.4rem; padding: 1.75rem 0; }
+    .whw__row { grid-template-columns: 1fr; gap: 0.25rem; }
+    .whw dt { padding-top: 0; }
+  }
+</style>
