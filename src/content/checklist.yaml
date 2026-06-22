@@ -40,6 +40,10 @@ org:
     - "https://twitter.com/MilkMoonStudio"
     - "https://www.facebook.com/milkmoonstudio"
     - "https://www.youtube.com/@milkmoonstudio"
+    - "https://vimeo.com/milkmoonstudio"
+    - "https://dribbble.com/milk_moon_studio"
+    - "https://medium.com/milk-moon-studio"
+    - "https://webflow.com/@Milk-Moon-Studio"
 
 hero:
   eyebrow: "Report · Pre-launch reference"
@@ -169,7 +173,7 @@ phases:
       - id: "disable-subdomain-indexing"
         n: 4
         title: "Disable Webflow subdomain (staging) indexing"
-        summary: "Stop Google from indexing your your-site.webflow.io staging URL."
+        summary: "Stop Google from indexing the your-site.webflow.io staging subdomain."
         impact: "critical"
         effort: "super-easy"
         webflowPath: "Site settings → SEO tab → Indexing"
@@ -1084,7 +1088,7 @@ faq:
   - q: "What is the most important Webflow SEO setting before launch?"
     a: >-
       Disabling Webflow subdomain (staging) indexing. In Site settings → SEO →
-      Indexing, toggle it on so your your-site.webflow.io staging copy is not
+      Indexing, toggle it on so the your-site.webflow.io staging copy is not
       indexed as duplicate content competing with your live domain. It is one
       switch and the single most-missed Webflow launch step.
   - q: "How do I get my Webflow site cited by AI like ChatGPT and Perplexity?"

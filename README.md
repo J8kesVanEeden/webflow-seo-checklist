@@ -11,15 +11,15 @@ demonstrates every item on its own checklist.
 
 - **[Astro](https://astro.build)** (static output) — real semantic HTML for crawlers + AI, one tiny JS island for progress.
 - **Self-hosted fonts** — Durer (display) + Poppins (body), matching milkmoonstudio.com.
-- **Cloudflare Pages** — auto-deploys on push to `main`.
+- **Cloudflare Workers (Static Assets)** — auto-deploys on push to `main` via Workers Builds.
 - **Google Tag Manager** — container `GTM-P29ZKG79`.
 
 ## Editing the content
 
 **All copy lives in one file: [`src/content/checklist.yaml`](src/content/checklist.yaml).**
 
-Edit it, commit, and push — Cloudflare Pages rebuilds automatically. No need to touch any
-components or HTML. The file is validated against a [Zod schema](src/data/checklist.ts) at
+Edit it, commit, and push — Cloudflare rebuilds and redeploys automatically. No need to touch
+any components or HTML. The file is validated against a [Zod schema](src/data/checklist.ts) at
 build time, so a typo or missing field fails the build loudly rather than shipping broken.
 
 Each checklist item looks like this:
@@ -60,6 +60,20 @@ Regenerate the OG image / icons after a brand change:
 node scripts/gen-assets.mjs
 ```
 
+## Deploy
+
+Pushing to `main` triggers Cloudflare Workers Builds (`npm run build` → `npx wrangler deploy`).
+To deploy by hand from a local build:
+
+```bash
+npm run build
+npx wrangler deploy        # uploads ./dist as static assets (see wrangler.jsonc)
+```
+
+Security and cache headers are served from [`public/_headers`](public/_headers) (HSTS,
+`X-Frame-Options`, `nosniff`, referrer + permissions policy; immutable caching for fonts and
+`/_astro/*`, `must-revalidate` for HTML).
+
 ## SEO / AEO features baked in
 
 - Semantic HTML5 landmarks, one H1 → H2 (phases) → H3 (items) hierarchy.
@@ -72,7 +86,9 @@ node scripts/gen-assets.mjs
 
 Real checkboxes saved to `localStorage` (key `wsac:v1:progress`) — progress survives refresh and
 return visits. The sticky header shows overall completion (ring + bar + count) and per-phase
-counts; **Reset** clears everything. Works without JS; JS only adds persistence and the progress UI.
+counts; **Reset** clears everything (and is disabled when nothing is checked). On load, ids for
+items that no longer exist are pruned, so editing the checklist never leaves stale saved state.
+Works without JS; JS only adds persistence and the progress UI.
 
 ---
 

@@ -34,6 +34,19 @@ function init() {
   const total = boxes.length;
   if (!total) return;
 
+  // Prune ids for items that no longer exist (renamed/removed in the YAML
+  // since the visitor last checked them). Without this, dead keys linger
+  // forever and a re-used id could resurrect a stale "checked" state.
+  const liveIds = new Set(boxes.map((b) => b.dataset.id));
+  let pruned = false;
+  for (const id of checked) {
+    if (!liveIds.has(id)) {
+      checked.delete(id);
+      pruned = true;
+    }
+  }
+  if (pruned) save(checked);
+
   const ring = document.querySelector('.js-ring');
   const pctEl = document.querySelector('.js-pct');
   const doneEl = document.querySelector('.js-done');
@@ -62,6 +75,9 @@ function init() {
     if (pctEl) pctEl.textContent = pct + '%';
     if (doneEl) doneEl.textContent = String(done);
     if (fillEl) fillEl.style.width = pct + '%';
+    // Nothing to reset when empty — convey that to keyboard/AT users
+    // instead of leaving a focusable control that silently no-ops.
+    if (resetBtn) resetBtn.disabled = done === 0;
 
     for (const phase of phaseGroups) {
       const pdone = phase.boxes.filter((b) => checked.has(b.dataset.id)).length;

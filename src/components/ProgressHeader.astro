@@ -92,7 +92,8 @@ import { totalItems } from '../data/checklist';
     padding: 0.38rem 0.8rem;
     transition: color 0.18s var(--ease), border-color 0.18s var(--ease);
   }
-  .topbar__reset:hover { color: var(--white); border-color: var(--border-strong); }
+  .topbar__reset:hover:not(:disabled) { color: var(--white); border-color: var(--border-strong); }
+  .topbar__reset:disabled { opacity: 0.4; cursor: not-allowed; }
 
   .topbar__bar { height: 2px; background: var(--grey-dark); }
   .topbar__fill {
