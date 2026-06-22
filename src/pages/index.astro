@@ -5,7 +5,9 @@ import ChecklistItem from '../components/ChecklistItem.astro';
 import FAQ from '../components/FAQ.astro';
 import { checklist } from '../data/checklist';
 
-const { hero, howToUse, phases, doFirst, sources, site } = checklist;
+const { hero, howToUse, phases, doFirst, sources, about, site } = checklist;
+const dataSources = sources.filter((s) => s.kind === 'data');
+const readingSources = sources.filter((s) => s.kind !== 'data');
 const updated = new Date(site.updated).toLocaleDateString('en-GB', {
   day: 'numeric',
   month: 'long',
@@ -27,7 +29,10 @@ const updated = new Date(site.updated).toLocaleDateString('en-GB', {
           {hero.stats.map((s) => (
             <div class="stats__item">
               <dt class="stats__value">{s.value}</dt>
-              <dd class="stats__label">{s.label}</dd>
+              <dd class="stats__label">
+                {s.label}
+                {s.source && <span class="stats__src">{s.source}</span>}
+              </dd>
             </div>
           ))}
         </dl>
@@ -110,15 +115,41 @@ const updated = new Date(site.updated).toLocaleDateString('en-GB', {
     <!-- ================= FAQ ================= -->
     <FAQ />
 
-    <!-- ================= SOURCES ================= -->
+    <!-- ================= ABOUT / METHODOLOGY ================= -->
+    <section class="about" id="about" aria-labelledby="about-heading">
+      <div class="container about__grid">
+        <div>
+          <p class="eyebrow">Why we made this</p>
+          <h2 id="about-heading">{about.heading}</h2>
+        </div>
+        <div class="about__body">
+          {about.body.map((para) => <p>{para}</p>)}
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= REFERENCES ================= -->
     <section class="sources" aria-labelledby="sources-heading">
       <div class="container">
-        <p class="eyebrow">Built from</p>
-        <h2 id="sources-heading" class="sources__heading">Sources</h2>
+        <p class="eyebrow">Credited in full</p>
+        <h2 id="sources-heading" class="sources__heading">References &amp; further reading</h2>
+
+        <h3 class="sources__sub">The research behind the numbers</h3>
         <ul class="sources__list">
-          {sources.map((s) => (
+          {dataSources.map((s) => (
             <li>
               <a class="link" href={s.url} target="_blank" rel="noopener">{s.label}</a>
+              {s.note && <span class="sources__note">{s.note}</span>}
+            </li>
+          ))}
+        </ul>
+
+        <h3 class="sources__sub">Webflow & SEO references</h3>
+        <ul class="sources__list">
+          {readingSources.map((s) => (
+            <li>
+              <a class="link" href={s.url} target="_blank" rel="noopener">{s.label}</a>
+              {s.note && <span class="sources__note">{s.note}</span>}
             </li>
           ))}
         </ul>
@@ -171,6 +202,7 @@ const updated = new Date(site.updated).toLocaleDateString('en-GB', {
     line-height: 1;
   }
   .stats__label { margin-top: 0.6rem; font-size: 0.85rem; color: var(--text-faint); line-height: 1.4; }
+  .stats__src { display: block; margin-top: 0.35rem; font-size: 0.72rem; color: var(--purple); letter-spacing: 0.02em; }
   @media (max-width: 720px) {
     .stats { grid-template-columns: repeat(2, 1fr); gap: 1.75rem 1.5rem; }
   }
@@ -284,11 +316,30 @@ const updated = new Date(site.updated).toLocaleDateString('en-GB', {
   .dofirst__after p:last-child { color: var(--text-dim); line-height: 1.6; margin-top: 0.4rem; }
   @media (max-width: 720px) { .dofirst__list { grid-template-columns: 1fr; } }
 
+  /* ---------------- ABOUT ---------------- */
+  .about { padding-block: clamp(3rem, 7vw, 5.5rem); border-top: 1px solid var(--border); }
+  .about__grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+  .about h2 { margin-top: 0.4rem; }
+  .about__body { display: grid; gap: 1.1rem; }
+  .about__body p { color: var(--text-dim); line-height: 1.65; max-width: 60ch; }
+  @media (max-width: 800px) { .about__grid { grid-template-columns: 1fr; } }
+
   /* ---------------- SOURCES ---------------- */
   .sources { padding-block: clamp(2rem, 5vw, 3.5rem); }
-  .sources__heading { margin: 0.4rem 0 1.4rem; }
-  .sources__list { list-style: none; display: grid; gap: 0.7rem; }
-  .sources__list li { color: var(--text-faint); }
+  .sources__heading { margin: 0.4rem 0 1.8rem; }
+  .sources__sub {
+    font-family: var(--font-body);
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin: 2rem 0 1rem;
+  }
+  .sources__sub:first-of-type { margin-top: 0; }
+  .sources__list { list-style: none; display: grid; gap: 1rem; }
+  .sources__list li { color: var(--text-faint); display: grid; gap: 0.2rem; }
+  .sources__note { font-size: 0.85rem; color: var(--text-faint); line-height: 1.45; max-width: 70ch; }
 
   /* ---------------- FOOTER ---------------- */
   .footer { border-top: 1px solid var(--border); padding-block: clamp(2.5rem, 5vw, 3.5rem); margin-top: 2rem; }

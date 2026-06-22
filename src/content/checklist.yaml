@@ -57,10 +57,12 @@ hero:
       label: "Phases, strategy through AEO"
     - value: "52"
       label: "Items, rated by impact & effort"
-    - value: "3.2×"
-      label: "FAQPage citation lift in AI Overviews"
-    - value: "~58%"
-      label: "CTR drop at position 1 when an AI Overview shows"
+    - value: "82%"
+      label: "Higher click-through for pages that win rich results"
+      source: "Google case study (Nestlé)"
+    - value: "58%"
+      label: "Lower click-through at position 1 when an AI Overview shows"
+      source: "Ahrefs, 2025"
 
 howToUse:
   heading: "How to use this checklist"
@@ -908,16 +910,18 @@ phases:
       - id: "faq-schema"
         n: 48
         title: "Add an FAQ section with FAQPage schema"
-        summary: "This is the single highest-ROI AEO move."
+        summary: "One of the highest-value, lowest-effort AEO moves you control on-page."
         impact: "critical"
         effort: "medium"
         webflowPath: "Page settings → Custom Code → Head (or an Embed)"
         what: >-
           A visible FAQ on the page, mirrored in FAQPage JSON-LD. Phrase
-          questions the way people ask an assistant ("how much," "how long,"
-          "can I"); keep each answer 40–70 words. Pages with FAQPage markup are
-          ~3.2× more likely to appear in Google AI Overviews, and FAQ schema's
-          citation rate in AI answers runs ~41% versus ~15% without it.
+          questions the way people ask an assistant ("how much", "how long",
+          "can I"); keep each answer 40–70 words. FAQ and Q&A markup is
+          consistently ranked among the highest-value schema types for AI answer
+          engines, and an empirical cross-platform study found structured data is
+          associated with higher AI-citation rates (Fischman, 2025) — though, in
+          honesty, domain authority and links still matter more than markup alone.
         how: >-
           Build the visible FAQ as content, then paste the JSON-LD into Page
           settings → Custom Code → Head (or an Embed).
@@ -994,8 +998,9 @@ phases:
           automatically.
         why: >-
           Typed markup makes facts (author, date, price, stock, address)
-          machine-readable and unlocks rich results — Google has cited an 82% CTR
-          lift on pages earning rich results.
+          machine-readable and unlocks rich results — and Google's own case
+          studies report higher click-through for rich-result pages (Nestlé
+          measured an 82% higher CTR; Rotten Tomatoes, 25%).
         code:
           lang: "html"
           label: "BlogPosting JSON-LD (bind the bracketed fields to CMS)"
@@ -1086,9 +1091,10 @@ faq:
     a: >-
       Write answer-first content, structure it in self-contained chunks with
       question-style headings, and add schema — especially FAQPage and
-      Organization JSON-LD with sameAs links. Pages with FAQ markup are around
-      3.2× more likely to appear in Google AI Overviews. Keep every schema fact
-      visible on the page and back claims with specific, sourced statistics.
+      Organization JSON-LD with sameAs links. FAQ and Q&A markup is among the
+      highest-value schema types for AI answer engines because it hands them a
+      ready-made question-and-answer pair. Keep every schema fact visible on the
+      page, and remember authority and links still matter more than markup alone.
   - q: "Does Webflow handle SEO automatically?"
     a: >-
       Partly. Webflow auto-generates a sitemap and self-referencing canonicals,
@@ -1107,20 +1113,68 @@ faq:
     a: >-
       Yes — but for AEO rather than classic rich results. Google reduced FAQ
       rich snippets in regular search, but FAQPage markup remains one of the
-      strongest signals for AI answer engines: it hands them a ready-made
-      question-and-answer pair in their native format, and FAQ-marked pages cite
-      at roughly 41% versus 15% without it.
+      strongest on-page signals for AI answer engines: it hands them a
+      ready-made question-and-answer pair in their native format, which is easy
+      to extract and cite. The magnitude varies by study, but the direction is
+      consistent across the research.
+
+about:
+  heading: "About this checklist"
+  body:
+    - >-
+      We build Webflow sites at Milk Moon Studio, and we run this list against
+      every project before it goes live. It started as our internal pre-launch
+      QA — so it is opinionated, Webflow-specific, and ordered the way we
+      actually work, rather than a generic list of tags.
+    - >-
+      It is a synthesis, not a scoop. We pulled together Webflow's own SEO
+      guidance, well-established technical-SEO practice, and current AEO
+      research, then reorganised it into a prioritised, page-by-page workflow
+      you can tick off. The references below are credited in full — the parts
+      worth reading in their original form are linked, and where we quote a
+      statistic we link the primary source.
+    - >-
+      A note on honesty: much of AEO is still new and the numbers move. Where a
+      figure is well-evidenced we cite it; where the field is genuinely
+      uncertain, we say so rather than dress a blog estimate up as fact. If you
+      spot something out of date, tell us — this is a living document.
 
 sources:
-  - label: "Sofian Bettayeb — Webflow SEO Checklist"
-    url: "https://www.checklist-seo.com/webflow/docs/implementation"
+  # The research behind the numbers we quote (kind: data)
+  - label: "Ahrefs — AI Overviews reduce clicks by 58% (2025 update)"
+    url: "https://ahrefs.com/blog/ai-overviews-reduce-clicks-update/"
+    note: "Source for the 58% lower CTR at position 1 when an AI Overview appears (300k-keyword study)."
+    kind: "data"
+  - label: "Google Search Central — Intro to structured data (case studies)"
+    url: "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data"
+    note: "Google's own case studies: Nestlé 82% higher CTR and Rotten Tomatoes 25% higher CTR for rich-result pages."
+    kind: "data"
+  - label: "Fischman — Does schema markup predict AI citation? (SSRN, 2025)"
+    url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6284518"
+    note: "Cross-platform empirical study associating structured data with higher AI-citation rates."
+    kind: "data"
+  - label: "Pew Research Center — Google users click less with AI summaries"
+    url: "https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/"
+    note: "Corroborates the AI-Overview click decline (8% click-through with an AI summary vs 15% without)."
+    kind: "data"
+  # Further reading — practical SEO/AEO references (kind: reading)
   - label: "Webflow University — SEO checklist"
     url: "https://university.webflow.com/resources/seo-checklist"
-  - label: "Webflow Blog — Technical SEO checklist"
+    note: "Webflow's official SEO guidance and settings reference."
+    kind: "reading"
+  - label: "Webflow Blog — Technical SEO"
     url: "https://webflow.com/blog/technical-seo"
+    kind: "reading"
   - label: "Webflow Blog — SEO checklist for site migration"
     url: "https://webflow.com/blog/seo-checklist-for-site-migration"
+    kind: "reading"
+  - label: "Sofian Bettayeb — Webflow SEO Checklist"
+    url: "https://www.checklist-seo.com/webflow/docs/implementation"
+    note: "A thorough community Webflow SEO reference."
+    kind: "reading"
   - label: "Semrush — Technical SEO checklist"
     url: "https://www.semrush.com/blog/technical-seo-checklist/"
+    kind: "reading"
   - label: "DashThis — Technical SEO checklist"
     url: "https://dashthis.com/blog/technical-seo-checklist/"
+    kind: "reading"

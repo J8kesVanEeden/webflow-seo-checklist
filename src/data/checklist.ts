@@ -50,6 +50,8 @@ const faqSchema = z.object({
 const sourceSchema = z.object({
   label: z.string(),
   url: z.string().url(),
+  note: z.string().optional(),
+  kind: z.enum(['data', 'reading']).optional(), // 'data' = research behind a cited number
 });
 
 const checklistSchema = z.object({
@@ -75,7 +77,13 @@ const checklistSchema = z.object({
     eyebrow: z.string(),
     heading: z.string(),
     lead: z.string(),
-    stats: z.array(z.object({ value: z.string(), label: z.string() })),
+    stats: z.array(
+      z.object({ value: z.string(), label: z.string(), source: z.string().optional() })
+    ),
+  }),
+  about: z.object({
+    heading: z.string(),
+    body: z.array(z.string()),
   }),
   howToUse: z.object({
     heading: z.string(),
