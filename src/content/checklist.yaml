@@ -35,9 +35,11 @@ org:
   url: "https://www.milkmoonstudio.com"
   logo: "https://www.milkmoonstudio.com/favicon.png"
   sameAs:
-    - "https://www.instagram.com/milkmoonstudio"
+    - "https://www.instagram.com/milk_moon_studio"
     - "https://www.linkedin.com/company/milk-moon-studio"
-    - "https://twitter.com/milkmoonstudio"
+    - "https://twitter.com/MilkMoonStudio"
+    - "https://www.facebook.com/milkmoonstudio"
+    - "https://www.youtube.com/@milkmoonstudio"
 
 hero:
   eyebrow: "Report · Pre-launch reference"

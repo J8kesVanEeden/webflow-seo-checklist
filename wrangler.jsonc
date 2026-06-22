@@ -1,0 +1,10 @@
+{
+  // Cloudflare Workers (Static Assets) config.
+  // `npm run build` produces ./dist, then `npx wrangler deploy` uploads it.
+  // No Worker script (no `main`) — this is an assets-only deployment.
+  "name": "webflow-seo-checklist",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./dist"
+  }
+}
