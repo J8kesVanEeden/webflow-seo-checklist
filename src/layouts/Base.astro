@@ -29,6 +29,19 @@ const GTM_ID = 'GTM-P29ZKG79';
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Hero motion: hide the h1 pre-paint only when JS is available (no flash);
+         a load-time fallback reveals it if the motion script ever fails. -->
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      addEventListener('load', function () {
+        setTimeout(function () {
+          var h = document.querySelector('.hero__heading');
+          if (h && getComputedStyle(h).visibility === 'hidden') h.style.visibility = 'visible';
+        }, 2400);
+      });
+    </script>
+
     <meta name="generator" content={Astro.generator} />
 
     <title>{site.title}</title>

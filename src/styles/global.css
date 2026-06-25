@@ -186,3 +186,22 @@ pre {
   color: var(--text-dim);
 }
 pre code { background: none; border: 0; padding: 0; color: inherit; font-size: 1em; }
+
+/* Hero heading motion (src/scripts/motion.js). Hide pre-paint only when JS is
+   present (inline head script adds .js) so there's no flash; no-JS shows it.
+   visibility:hidden keeps layout so SplitText measures correctly (no CLS). */
+.js .hero__heading { visibility: hidden; }
+.hero__heading .sh-word { display: inline-block; }   /* keep words unbreakable */
+.hero__heading .sh-char { display: inline-block; will-change: transform, opacity; }
+
+/* Section scroll fade-ups (src/scripts/motion.js). Transition lives on the base
+   element; JS adds .pre-reveal (hidden) and removes it on scroll-in. No-JS or a
+   4s safety net = always visible. Disabled under reduced-motion. */
+main > section:not(.hero) > .container,
+main > section:not(.hero) {
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.pre-reveal { opacity: 0; transform: translateY(26px); }
+@media (prefers-reduced-motion: reduce) {
+  .pre-reveal { opacity: 1; transform: none; }
+}
