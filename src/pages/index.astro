@@ -22,9 +22,10 @@ const updated = new Date(site.updated).toLocaleDateString('en-GB', {
     <!-- ================= HERO ================= -->
     <section class="hero">
       <div class="container">
+        <img class="hero__star" src="/brand/star.svg" alt="" aria-hidden="true" width="38" height="38" />
         <p class="eyebrow hero__eyebrow">{hero.eyebrow} · Updated {updated}</p>
         <h1 class="hero__heading">{hero.heading}</h1>
-        <p class="hero__lead">{hero.lead}</p>
+        <p class="hero__lead" set:html={hero.lead.replace('cited by AI', '<span class="squiggle">cited by AI</span>')}></p>
         <dl class="stats">
           {hero.stats.map((s) => (
             <div class="stats__item">
@@ -99,7 +100,7 @@ const updated = new Date(site.updated).toLocaleDateString('en-GB', {
     <!-- ================= DO-FIRST SHORTLIST ================= -->
     <section class="dofirst" aria-labelledby="dofirst-heading">
       <div class="container">
-        <p class="eyebrow">Priority</p>
+        <p class="eyebrow dofirst__eyebrow">Priority<img class="aster" src="/brand/asterisk.svg" alt="" aria-hidden="true" width="12" height="13" /></p>
         <h2 id="dofirst-heading">{doFirst.heading}</h2>
         <p class="dofirst__lead">{doFirst.intro}</p>
         <ul class="dofirst__list">
@@ -161,6 +162,7 @@ const updated = new Date(site.updated).toLocaleDateString('en-GB', {
   <footer class="footer">
     <div class="container footer__inner">
       <div>
+        <img class="footer__logo" src="/brand/mms-logo.svg" alt="Milk Moon Studio" width="150" height="69" />
         <p class="footer__title">The Ultimate Webflow SEO &amp; AEO Checklist</p>
         <p class="footer__sub">A field guide for shipping Webflow sites that rank and get cited.</p>
       </div>
@@ -180,7 +182,19 @@ const updated = new Date(site.updated).toLocaleDateString('en-GB', {
 <style>
   /* ---------------- HERO ---------------- */
   .hero { padding-block: clamp(3rem, 9vw, 7rem) clamp(2rem, 5vw, 3.5rem); }
+  .hero .container { position: relative; }
+  .hero__star {
+    position: absolute;
+    top: clamp(0.25rem, 2vw, 1.5rem);
+    right: 0;
+    width: clamp(26px, 4vw, 40px);
+    height: auto;
+    transform: rotate(-10deg);
+    pointer-events: none;
+  }
   .hero__eyebrow { margin-bottom: 1.5rem; }
+  .dofirst__eyebrow { display: inline-flex; align-items: baseline; gap: 0.4rem; }
+  .aster { width: 0.85em; height: auto; opacity: 0.9; }
   .hero__heading { margin-bottom: 1.6rem; }
   .hero__lead {
     font-size: clamp(1.05rem, 1.6vw, 1.3rem);
@@ -346,17 +360,18 @@ const updated = new Date(site.updated).toLocaleDateString('en-GB', {
   .footer__inner { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: space-between; }
   .footer__title { font-family: var(--font-display); font-size: 1.3rem; color: var(--white); }
   .footer__sub { color: var(--text-faint); font-size: 0.9rem; margin-top: 0.3rem; }
+  .footer__logo { width: clamp(120px, 20vw, 158px); height: auto; margin-bottom: 1.1rem; }
   .footer__cta {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     font-weight: 500;
     color: var(--black);
-    background: var(--lilac);
-    padding: 0.7rem 1.2rem;
-    border-radius: 999px;
+    background: var(--white);
+    padding: 0.85rem 1.4rem;
+    border-radius: var(--radius-sm);
     text-decoration: none;
     transition: transform 0.18s var(--ease), background 0.18s var(--ease);
   }
-  .footer__cta:hover { transform: translateY(-2px); background: var(--white); }
+  .footer__cta:hover { transform: translateY(-2px); background: var(--pale-yellow); }
 </style>

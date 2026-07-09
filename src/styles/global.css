@@ -50,7 +50,7 @@
   --grey: #8a8a8a;
   --grey-light: #b8b8b8;
   --white: #ffffff;
-  --off-white: #f2f2f2;
+  --off-white: #fafafa;        /* brand canvas / off-white */
   --purple: #7f71c8;
   --lilac: #cba6d6;
   --pale-yellow: #fef7b9;
@@ -67,9 +67,10 @@
   --accent: var(--purple);
   --accent-2: var(--lilac);
 
-  /* Impact heat scale */
+  /* Impact heat scale. NB: butter-yellow is reserved for the signature
+     squiggle only (brand rule), so high-impact uses purple, not yellow. */
   --impact-critical: #ff7a7a;
-  --impact-high: var(--pale-yellow);
+  --impact-high: var(--purple);
   --impact-medium: var(--lilac);
   --impact-low: var(--grey);
 
@@ -81,8 +82,12 @@
   /* Layout */
   --maxw: 1180px;
   --gutter: clamp(1.25rem, 5vw, 5rem);
-  --radius: 14px;
-  --radius-sm: 8px;
+  /* Corners — the brand is deliberately SQUARE (buttons + cards carry no
+     radius). Roundness only as full circles (avatars) and pills (tag chips). */
+  --radius: 0;
+  --radius-sm: 2px;
+  --radius-pill: 100px;
+  --radius-circle: 100%;
 
   /* Motion */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -139,7 +144,15 @@ a.link {
   border-bottom: 1px solid rgba(203, 166, 214, 0.4);
   transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
 }
-a.link:hover { color: var(--white); border-bottom-color: var(--white); }
+a.link:hover { color: var(--pale-yellow); border-bottom-color: var(--pale-yellow); }
+
+/* ---- The signature: butter-yellow wavy underline under a key word ---- */
+.squiggle {
+  text-decoration: underline wavy var(--pale-yellow);
+  text-decoration-thickness: 0.16em;
+  text-underline-offset: 0.14em;
+  text-decoration-skip-ink: none;
+}
 
 /* ---- Utilities ---- */
 .container { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gutter); }
