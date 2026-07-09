@@ -47,7 +47,7 @@ org:
 
 hero:
   eyebrow: "Report · Pre-launch reference"
-  heading: "The Ultimate Webflow SEO & AEO Checklist"
+  heading: "The ultimate Webflow SEO & AEO checklist"
   lead: >-
     Ship a site that ranks on Google and gets cited by AI. This is a
     page-by-page pre-launch checklist for a Webflow project, organised into
@@ -107,7 +107,7 @@ phases:
   # =========================================================================
   - id: "strategy"
     number: "I"
-    title: "Strategy & Keyword Foundation"
+    title: "Strategy & keyword foundation"
     blurb: "Decide what each page is for before you build it."
     items:
       - id: "keyword-map"
@@ -167,7 +167,7 @@ phases:
   # =========================================================================
   - id: "technical"
     number: "II"
-    title: "Technical Foundation (Site-Wide)"
+    title: "Technical foundation (site-wide)"
     blurb: "Set up once, correctly. These gate everything else."
     items:
       - id: "disable-subdomain-indexing"
@@ -333,7 +333,7 @@ phases:
   # =========================================================================
   - id: "on-page"
     number: "III"
-    title: "On-Page SEO (Run Per Page)"
+    title: "On-page SEO (run per page)"
     blurb: "Repeat these for every page before you publish it."
     items:
       - id: "meta-title"
@@ -659,7 +659,7 @@ phases:
   # =========================================================================
   - id: "mobile-ux-a11y"
     number: "V"
-    title: "Mobile, UX & Accessibility"
+    title: "Mobile, UX & accessibility"
     blurb: "Google indexes mobile-first, and accessible sites rank and convert better."
     items:
       - id: "responsive"
@@ -753,7 +753,7 @@ phases:
   # =========================================================================
   - id: "launch"
     number: "VI"
-    title: "Launch Day & Verification"
+    title: "Launch day & verification"
     blurb: "The pre-publish pass that catches ranking-killers."
     items:
       - id: "audit"
@@ -878,7 +878,7 @@ phases:
   # =========================================================================
   - id: "aeo"
     number: "VII"
-    title: "AEO — Get Cited by AI Answer Engines"
+    title: "AEO — get cited by AI answer engines"
     blurb: "Optimise so ChatGPT, Perplexity, and Google AI Overviews select and cite you."
     items:
       - id: "answer-first"
@@ -1054,7 +1054,7 @@ phases:
           attribute.
 
 doFirst:
-  heading: "The Do-First Shortlist"
+  heading: "The do-first shortlist"
   intro: >-
     If you only do ten things, these are the highest impact-to-effort moves
     across the whole list. Knock these out first, then work the rest by phase.
