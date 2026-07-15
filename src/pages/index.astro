@@ -158,18 +158,80 @@ const updated = new Date(site.updated).toLocaleDateString('en-GB', {
     </section>
   </main>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div>
+  <!-- ================= FOOTER =================
+       Shared Milk Moon menu-column footer (identity block · link columns ·
+       circular socials · hairline · legal), bound to THIS site's black/purple
+       tokens. Keeps the site's own logo, tagline and "Built by" CTA; adds the
+       three-tool cross-links. Social + legal URLs match the studio's live footer. -->
+  <footer class="site-footer">
+    <div class="container site-footer-inner">
+      <div class="site-footer-identity">
         <img class="footer__logo" src="/brand/mms-logo.svg" alt="Milk Moon Studio" width="150" height="69" />
         <p class="footer__title">The Ultimate Webflow SEO &amp; AEO Checklist</p>
         <p class="footer__sub">A field guide for shipping Webflow sites that rank and get cited.</p>
+        <a class="footer__cta" href="https://www.milkmoonstudio.com" target="_blank" rel="noopener">
+          Built by Milk Moon Studio
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
-      <a class="footer__cta" href="https://www.milkmoonstudio.com" target="_blank" rel="noopener">
-        Built by Milk Moon Studio
-        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M7 17L17 7M17 7H8M17 7v9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+      <nav class="site-footer-columns" aria-label="Footer">
+        <div class="site-footer-column">
+          <span class="site-footer-heading">Studio</span>
+          <a href="https://www.milkmoonstudio.com" target="_blank" rel="noopener">Milk Moon Studio</a>
+          <a href="https://www.milkmoonstudio.com/blog" target="_blank" rel="noopener">Blog</a>
+          <a href="https://www.milkmoonstudio.com/contact-us" target="_blank" rel="noopener">Contact</a>
+          <a href="https://webflow.com/@Milk-Moon-Studio" target="_blank" rel="noopener">Webflow partner</a>
+        </div>
+
+        <div class="site-footer-column">
+          <span class="site-footer-heading">Side projects</span>
+          <a href="https://scan.milkmoonstudio.com" target="_blank" rel="noopener">Bot App&eacute;tit</a>
+          <span class="site-footer-current">SEO &amp; AEO Checklist (you're here)</span>
+          <a href="https://easing.milkmoonstudio.com" target="_blank" rel="noopener">GSAP Easing Showcase</a>
+        </div>
+
+        <div class="site-footer-column">
+          <span class="site-footer-heading">Elsewhere</span>
+          <a href="https://contra.com/jakes_van_eeden/work" target="_blank" rel="noopener">Portfolio</a>
+          <a href="https://g.page/r/CaaR5v308b3uEAI/review" target="_blank" rel="noopener">Leave a review</a>
+          <a href="mailto:jakes@milkmoonstudio.com?subject=Webflow%20SEO%20Checklist%20bug%20report&body=What%20happened%3A%0A%0A">Report a bug</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container site-footer-socials">
+      <a class="site-footer-social" href="https://www.instagram.com/milk_moon_studio/" target="_blank" rel="noopener" aria-label="Milk Moon Studio on Instagram">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="15" height="15" rx="4" stroke="currentColor" stroke-width="1.5"></rect><circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="1.5"></circle><circle cx="14.2" cy="5.8" r="1" fill="currentColor"></circle></svg>
       </a>
+      <a class="site-footer-social" href="https://www.linkedin.com/company/milk-moon-studio" target="_blank" rel="noopener" aria-label="Milk Moon Studio on LinkedIn">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2.5" y="2.5" width="15" height="15" stroke="currentColor" stroke-width="1.5"></rect><circle cx="6.2" cy="6.5" r="1" fill="currentColor"></circle><path d="M6.2 9v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path><path d="M10 15v-3.5c0-1.4 1-2.5 2.3-2.5s2 .9 2 2.3V15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M10 9v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>
+      </a>
+      <a class="site-footer-social" href="https://twitter.com/MilkMoonStudio" target="_blank" rel="noopener" aria-label="Milk Moon Studio on X">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path></svg>
+      </a>
+      <a class="site-footer-social" href="https://www.facebook.com/milkmoonstudio" target="_blank" rel="noopener" aria-label="Milk Moon Studio on Facebook">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M12.5 3.5h-2A3 3 0 0 0 7.5 6.5v2.5H5.5v3h2V17h3v-5h2.3l.4-3h-2.7v-2c0-.8.2-1.3 1.3-1.3h1.5z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"></path></svg>
+      </a>
+      <a class="site-footer-social" href="https://www.youtube.com/@milkmoonstudio" target="_blank" rel="noopener" aria-label="Milk Moon Studio on YouTube">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2.5" y="5" width="15" height="10" rx="2.5" stroke="currentColor" stroke-width="1.5"></rect><path d="M8.5 7.5v5l4-2.5z" fill="currentColor"></path></svg>
+      </a>
+      <a class="site-footer-social" href="https://vimeo.com/milkmoonstudio" target="_blank" rel="noopener" aria-label="Milk Moon Studio on Vimeo">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 7c1-1 2.5-1.5 3 .5.4 1.6.7 3.4 1.4 3.4.8 0 2.2-2.2 2.4-3.2.3-1.4-.6-1.7-1.4-1.3 1-2.6 3.8-2.6 3.9.3.1 1.7-2 4.7-3.2 5.6-1 .7-2 .3-2.6-.8C5.9 12 5.6 9.7 5 9.2c-.3-.3-.7 0-1 .3z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"></path></svg>
+      </a>
+      <a class="site-footer-social" href="https://medium.com/milk-moon-studio" target="_blank" rel="noopener" aria-label="Milk Moon Studio on Medium">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="6" cy="10" r="4" stroke="currentColor" stroke-width="1.4"></circle><ellipse cx="13" cy="10" rx="1.4" ry="4" stroke="currentColor" stroke-width="1.2"></ellipse><path d="M17 6.5v7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path></svg>
+      </a>
+    </div>
+
+    <hr class="container site-footer-hairline" />
+
+    <div class="container site-footer-legal">
+      <span>&copy; Milk Moon Studio. Made for Webflow builders, in the Overberg.</span>
+      <div class="site-footer-legal-links">
+        <a href="https://www.milkmoonstudio.com/legal/privacy-policy" target="_blank" rel="noopener">Privacy policy</a>
+        <a href="https://www.milkmoonstudio.com/legal/cookie-policy" target="_blank" rel="noopener">Cookie policy</a>
+      </div>
     </div>
   </footer>
 
@@ -355,9 +417,13 @@ const updated = new Date(site.updated).toLocaleDateString('en-GB', {
   .sources__list li { color: var(--text-faint); display: grid; gap: 0.2rem; }
   .sources__note { font-size: 0.85rem; color: var(--text-faint); line-height: 1.45; }
 
-  /* ---------------- FOOTER ---------------- */
-  .footer { border-top: 1px solid var(--border); padding-block: clamp(2.5rem, 5vw, 3.5rem); margin-top: 2rem; }
-  .footer__inner { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: space-between; }
+  /* ---------------- FOOTER ----------------
+     Shared Milk Moon menu-column footer (see Bot Appétit's SiteFooter for the
+     canonical shape), bound to THIS site's black/purple tokens. The band spans
+     full width; inner rows use .container for the site's max-width + gutters. */
+  .site-footer { background: var(--bg-raised); border-top: 1px solid var(--border); padding-block: clamp(2.5rem, 5vw, 3.5rem); margin-top: 2rem; }
+  .site-footer-inner { display: flex; flex-wrap: wrap; gap: clamp(2rem, 5vw, 3.5rem); align-items: flex-start; justify-content: space-between; }
+  .site-footer-identity { display: flex; flex-direction: column; align-items: flex-start; gap: 0.4rem; max-width: 24rem; }
   .footer__title { font-family: var(--font-display); font-size: 1.3rem; color: var(--white); }
   .footer__sub { color: var(--text-faint); font-size: 0.9rem; margin-top: 0.3rem; }
   .footer__logo { width: clamp(120px, 20vw, 158px); height: auto; margin-bottom: 1.1rem; }
@@ -365,6 +431,7 @@ const updated = new Date(site.updated).toLocaleDateString('en-GB', {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    margin-top: 0.9rem;
     font-weight: 500;
     color: var(--black);
     background: var(--white);
@@ -374,4 +441,34 @@ const updated = new Date(site.updated).toLocaleDateString('en-GB', {
     transition: transform 0.18s var(--ease), background 0.18s var(--ease);
   }
   .footer__cta:hover { transform: translateY(-2px); background: var(--pale-yellow); }
+
+  .site-footer-columns { display: flex; flex-wrap: wrap; gap: clamp(2.5rem, 6vw, 5rem); }
+  .site-footer-column { display: flex; flex-direction: column; gap: 0.85rem; min-width: 9rem; }
+  .site-footer-column a { color: var(--off-white); text-decoration: none; font-size: 0.9rem; }
+  .site-footer-column a:hover { color: var(--pale-yellow); }
+  .site-footer-current { color: var(--text-faint); font-size: 0.9rem; }
+  .site-footer-heading { font-family: var(--font-display); font-size: 1rem; color: var(--text-faint); }
+
+  .site-footer-socials { margin-top: clamp(2rem, 5vw, 3rem); display: flex; gap: 0.75rem; }
+  /* Circular socials — the brand's sanctioned circle exception (BRAND.md), even
+     though this site's default radius is square. */
+  .site-footer-social {
+    display: flex; align-items: center; justify-content: center;
+    width: 2.75rem; height: 2.75rem; min-width: 44px; min-height: 44px;
+    border: 1px solid var(--border-strong); border-radius: var(--radius-circle);
+    color: var(--off-white);
+    transition: color 0.18s var(--ease), border-color 0.18s var(--ease);
+  }
+  .site-footer-social svg { width: 1.1rem; height: 1.1rem; }
+  .site-footer-social:hover { color: var(--pale-yellow); border-color: var(--pale-yellow); }
+
+  .site-footer-hairline { margin-top: clamp(2rem, 5vw, 3rem); border: none; border-top: 1px solid var(--border); }
+  .site-footer-legal {
+    margin-top: 1.5rem; display: flex; flex-wrap: wrap;
+    justify-content: space-between; gap: 1rem;
+    color: var(--text-faint); font-size: 0.85rem;
+  }
+  .site-footer-legal-links { display: flex; gap: 1.5rem; }
+  .site-footer-legal-links a { color: var(--text-faint); text-decoration: underline; }
+  .site-footer-legal-links a:hover { color: var(--pale-yellow); }
 </style>
