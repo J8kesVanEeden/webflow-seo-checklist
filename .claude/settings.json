@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "../Bot Appetit"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.dev.vars)",
+      "Read(./**/dist/**)",
+      "Read(./**/build/**)"
+    ]
+  }
+}
