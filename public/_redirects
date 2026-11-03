@@ -1,11 +1,11 @@
-# seo.milkmoonstudio.com -> scan.milkmoonstudio.com/checklist/ (Bot Appétit redesign R14, decision D2, 2026-10-05).
-# The checklist now lives at https://scan.milkmoonstudio.com/checklist/ with the SAME item and phase ids, so an old
+# seo.milkmoonstudio.com -> botappetit.ai/checklist/ (Bot Appétit redesign R14, decision D2, 2026-10-05).
+# The checklist now lives at https://botappetit.ai/checklist/ with the SAME item and phase ids, so an old
 # link's #fragment lands on the same item: the browser carries it across a redirect whose Location has none
 # (RFC 9110 §10.2.2).
 #
 # Every line says 301: the default is 302. No splat on purpose — "/*" would also redirect robots.txt and the
 # sitemaps, which must keep serving so crawlers can still see this move. Keep this for at least a year, and keep
 # src/ intact: rolling back is a revert of this file (Bot Appétit docs/design-brief/12-seo-checklist-merge.md §4.5).
-/              https://scan.milkmoonstudio.com/checklist/   301
-/index.html    https://scan.milkmoonstudio.com/checklist/   301
-/og-image.png  https://scan.milkmoonstudio.com/og-image.png 301
+/              https://botappetit.ai/checklist/   301
+/index.html    https://botappetit.ai/checklist/   301
+/og-image.png  https://botappetit.ai/og-image.png 301
